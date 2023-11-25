@@ -1,0 +1,50 @@
+@media screen and (max-width: 1200px){
+  main .container header nav ul{
+    min-width: 600px;
+  }
+  .container .trailer_box .trailer_list_video {
+    height: 170px;
+  }
+  .container .trailer_box .trailer_list_video .trailer_movie {
+    height: 170;
+  }
+  section .container .person_box .item_person{
+    height: 340px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  main .container header .logo{
+    width: 130px;
+  }
+  main .container header nav ul{
+    min-width: 550px;
+  }
+  main .container section .container .title_genre .genre ul{
+    padding: 0;
+    overflow-x: scroll;
+    gap: 20px;
+  }
+  section .container .popular .title_popular{
+    margin-top: 100px;
+  }
+  section .container .popular .slider{
+    margin: 60px 0;
+  }  
+  section .container .person_box .item_person{
+    height: 280px;
+  }
+  section .container .person_box .item_person .name,
+  section .container .person_box .item_person .original_name,
+  section .container .person_box .item_person .age{
+    font-size: 18px;
+  }
+  section .container .person_box .person_place_list{
+    padding: 20px;
+  }
+  section .container .person_box .person_place_list .person_place .left .name,
+  section .container .person_box .person_place_list .person_place .left .original_name,
+  section .container .person_box .person_place_list .person_place .left .age{
+    font-size: 15px;
+  }
+}
