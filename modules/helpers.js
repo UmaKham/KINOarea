@@ -16,8 +16,6 @@ export const getData = async (resource) => {
     }
 }
 
-
-
 // const video_url = 'https://api.themoviedb.org/3/movie'
 
 // export const getData_video = async (id, resource) => {

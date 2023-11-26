@@ -1,5 +1,11 @@
 import { getData } from './modules/helpers'
-import { reload_movie, reload_actors, reload_box_office, reload_coming_soon } from './modules/ui'
+import { 
+    reload_movie, 
+    reload_actors, 
+    reload_box_office, 
+    reload_coming_soon, 
+    reload_search_movie
+} from './modules/ui'
 
 /////////////////// NOW-PLAYING ///////////////////
 
@@ -62,13 +68,34 @@ getData('/movie/popular')
 
 /////////////////// SEARCH_MOVIE ///////////////////
 
-let search_box = document.querySelector('.search_box')
+let search_input = document.querySelector('.search_input')
+let results_box = document.querySelector('.results_box')
 let search_btn = document.querySelector('.search')
+let btn_close = document.querySelector('[data-close]')
+let search_box = document.querySelector('.search_box')
 
 search_btn.onclick = () => {
-    if(search_box.classList.contains('visible')) {
+    search_box.classList.add('visible')
+    results_box.innerHTML = ''
+    document.body.style.overflow = 'hidden'
+}
+btn_close.onclick = (e) => {
+    document.body.style.overflow = 'scroll'
+    if(e.target.getAttribute('data-close') !== null) {
         search_box.classList.remove('visible')
-    } else {
-        search_box.classList.add('visible')
+        search_input.value = ''
     }
+}
+
+search_input.onfocus = () => {
+    results_box.style.height = '550px'
+}
+
+search_input.onkeyup = () => {
+
+    Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list')])
+        .then(([movies, genres]) => {
+            console.log(movies.data.results);
+            reload_search_movie(movies.data.results, results_box, genres.data.genres)
+        })
 }
