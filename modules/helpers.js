@@ -1,8 +1,6 @@
 import axios from 'axios'
-import { reload_movie } from './ui'
 
 const base_url = 'https://api.themoviedb.org/3/'
-
 
 export const getData = async (resource) => {
     try{

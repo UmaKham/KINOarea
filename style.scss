@@ -1,818 +1,1117 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Architects Daughter', cursive;
-  font-family: 'Ysabeau Infant', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Architects Daughter', cursive;
+    font-family: 'Ysabeau Infant', sans-serif;
 }
 
-body{
-  background: #1E2538;
+body {
+    background: #1E2538;
 }
 
-.background_image{
-  width: 100%;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  opacity: 10%;
+.background_image {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    opacity: 10%;
 }
 
-main{
-  .container{
-  max-width: 1920px;
-  padding: 30px 40px;
-    header{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 0;
-      .logo{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        cursor: pointer;
-        .logotype{
-          display: flex;
-          align-items: center;
-          gap: 5px;
-        }
-        .social{
-          width: 126px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          img{
-            width: 15px;
-            opacity: 40%;
-            cursor: pointer;
-          }
-          img:hover{
-            opacity: 100%;
-          }
-        }
-      }
-      nav{
-        ul{
-          min-width: 760px;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: row;
-          li{
-            font-size: 17px;
-            list-style: none;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            opacity: 70%;
-          }
-          li:hover{
-            opacity: 100%;
-          }
-        }
-      }
-      .header_btns{
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        .search{
-        width: 55px;
-        height: 55px;
-        border-radius: 15px;
-        cursor: pointer;
-        }
-        .login{
-          background-color: #3657CB;
-          box-shadow: 0 0 5px #192a67;
-          border-radius: 15px;
-          border: none;
-          color: white;
-          font-size: 16px;
-          font-weight: bold;
-          width: 138px;
-          height: 55px;
-          cursor: pointer;
-          opacity: 90%;
-        }
-        .login:hover{
-          opacity: 100%;
-        }
-      }
-    }
-    section{
-      .container{
+main {
+    .container {
         max-width: 1920px;
-        padding: 20px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        .title_genre{
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 20px;
-          h1{
-            width: 20%;
-            color: white;
-          }
-          .genre{
-            width: 80%;
-            overflow: hidden;
-            ul{
-              display: flex;
-              justify-content: space-between;
-              color: white;
-              list-style: none;
-              overflow-x: scroll;
-              padding: 0 30px 30px 30px;
-              li{
-                font-weight: bold;
+        padding: 30px 40px;
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+
+            .logo {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
                 cursor: pointer;
-                opacity: 70%;
-              }
-              .active{
-                opacity: 100%;
-              }
-              li:hover{
-                opacity: 100%;
-              }
+
+                .logotype {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+
+                .social {
+                    width: 126px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    img {
+                        width: 15px;
+                        opacity: 40%;
+                        cursor: pointer;
+                    }
+
+                    img:hover {
+                        opacity: 100%;
+                    }
+                }
             }
-            ::-webkit-scrollbar{
-              display: none;
+
+            nav {
+                ul {
+                    min-width: 760px;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+
+                    li {
+                        font-size: 17px;
+                        list-style: none;
+                        text-decoration: none;
+                        color: white;
+                        font-weight: bold;
+                        cursor: pointer;
+                        opacity: 70%;
+                    }
+
+                    li:hover {
+                        opacity: 100%;
+                    }
+                }
             }
-          }
-        }
-      }
-      .now_playing{
-        padding: 50px 0;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-        gap: 40px;
-        .item_movie{
-          width: fit-content;
-          position: relative;
-          .poster_movie{
-            width: 100%;
-            height: 80%;
-            background-size: cover;
-            border-radius: 15px;
-            box-shadow: 0 0 15px black;
-            cursor: pointer;
-          }
-          .name_movie{
-            cursor: pointer;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-          }
-          .genre_movie{
-            color: gold;
-            font-size: 15px;
-          }
-          .rating_box{
-            width: 65px;
-            height: 35px;
-            border-radius: 5px;
-            background-color: rgb(137, 203, 54);
+
+        .header_btns {
             display: flex;
-            justify-content: center;
             align-items: center;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            .rating{
-              color: white;
-              font-weight: bold;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-.new_movie_btn{
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 71px;
-  border-radius: 10px;
-  border: 2px solid #FFF;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  background: none;
-  cursor: pointer;
-}
-section{
-  .container {
-    max-width: 1920px;
-    padding: 0 40px;
-    .trailer_box {
-      .title_treiler {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1{
-          font-size: 50px;
-          font-weight: bold;
-          color: white;
-        }
-        button{
-          background: none;
-          color: white;
-          font-size: 22px;
-          font-weight: bold;
-          border: none;
-          display: flex;
-          align-items: center;
-          gap: 27px;
-          img{
-            padding-top: 7px;
-          }
-        }
-      }
-      .video{
-        width: 100%;
-        height: 1070px;
-        margin-top: 40px;
-        box-shadow: 0 0 15px black;
-        iframe{
-          background: black;
-          width: 100%;
-          height: 100%;
-          border: none;
-        }
-      }
-      .title_box{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 20px;
-        .bottom_title{
-          display: flex;
-          align-items: center;
-          gap: 30px;
-          h1{
-            font-size: 50px;
-            color: white;
-          }
-          .social_box{
-            display: flex;
-            gap: 20px;
-            img{
-              width: 25px;
-              opacity: 50%;
-            }
-            :hover{
-              opacity: 100%;
-              cursor: pointer;
-            }
-          }
-        }
-        .assessment_counter{
-          display: flex;
-          gap: 20px;
-          .like, .dislike{
-            background-color: #1B2133;
-            border-radius: 10px;
-            display: flex;
             justify-content: center;
+
+            .search_box {
+                width: 230px;
+                height: 55px;
+                overflow: hidden;
+                position: relative;
+                margin-right: 12px;
+                display: none;
+                .movie_search {
+                    width: 230px;
+                    height: 55px;
+                    font-size: 15px;
+                    outline: none;
+                    border: none;
+                    border-radius: 15px;
+                    padding: 0;
+                    position: absolute;
+                    left: 0;
+                    padding: 0 20px;
+                }
+            }
+            .visible{
+                display: flex;
+            }
+
+
+
+            .search {
+                width: 55px;
+                height: 55px;
+                border: none;
+                border-radius: 15px;
+                cursor: pointer;
+                z-index: 1;
+                margin-right: 12px;
+            }
+
+            .login {
+                background-color: #3657CB;
+                box-shadow: 0 0 5px #192a67;
+                border-radius: 15px;
+                border: none;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                width: 138px;
+                height: 55px;
+                cursor: pointer;
+                opacity: 90%;
+            }
+
+            .login:hover {
+                opacity: 100%;
+            }
+        }
+    }
+
+    section {
+        .container {
+            max-width: 1920px;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            width: 60px;
-            height: 60px;
-            position: relative;
-            img{
-              padding-bottom: 8px;
-              opacity: 60%;
-            }
-            p{
-              position: absolute;
-              color: white;
-              bottom: -25px;
-            }
-            :hover{
-              opacity: 100%;
-              cursor: pointer;
-            }
-          }
-          .dislike{
-            img{
-              padding-bottom: 0;
-              padding-top: 8px;
-              opacity: 60%;
-            }
-            :hover{
-              opacity: 100%;
-              cursor: pointer;
-            }
-          }
-        }
-      }
-      .trailer_list_video{
-        margin-top: 40px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        .trailer_movie{
-          position: relative;
-        }
-        .iframe{
-          background-color: black;
-          width: 100%;
-          height: 207px;
-          border-radius: 20px;
-        }
-        .iframe::after{
-          content:'';
-          background-color: white;
-          background-image: url('./public/play_circle.svg');
-          background-repeat: no-repeat;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          translate: -50% -50%;
-          width: 80px;
-          height: 80px;
-          background-size: 80px 80px;
-          border-radius: 50%;
-          cursor: pointer;
-        }
-        p{
-          color: white;
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
-section{
-  .container {
-    max-width: 1920px;
-    padding: 0 40px;
-    .popular {
-      margin-top: 40px;
-      color: white;
-      .title_popular{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        h1{
-          font-size: 40px;
-        }
-        ul{
-          display: flex;
-          gap: 20px;
-          li{
-            list-style: none;
-            font-weight: bold;
-            opacity: 50%;
-          }
-          :hover{
-            opacity: 80%;
-            cursor: pointer;
-          }
-          .active{
-            opacity: 100%;
-          }
-        }
-      }
-    }
-    .popular_movie {
-      padding-top: 50px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto;
-      gap: 40px;
-      .item_movie{
-        width: fit-content;
-        position: relative;
-        .poster_movie{
-          width: 100%;
-          height: 80%;
-          border-radius: 15px;
-          box-shadow: 0 0 15px black;
-          cursor: pointer;
-        }
-        .name_movie{
-          cursor: pointer;
-          color: white;
-          font-weight: bold;
-          font-size: 18px;
-        }
-        .genre_movie{
-          color: gold;
-          font-size: 15px;
-        }
-        .rating_box{
-          width: 65px;
-          height: 35px;
-          border-radius: 5px;
-          background-color: rgb(137, 203, 54);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          .rating{
-            color: white;
-            font-weight: bold;
-          }
-        }
-      }
-    }
-    .slider{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      p{
-        font-size: 20px;
-      }
-      button{
-        background: none;
-        border: none;
-        img{
-          width: 25px;
-          height: 25px;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-}
-section{
-  .container {
-    max-width: 1920px;
-    .popular_person {
-      .person_title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 63px;
-        h1{
-          font-size: 40px;
-          color: white;
-        }
-        ul{
-          display: flex;
-          gap: 20px;
-          li{
-            color: white;
-            list-style: none;
-            opacity: 50%;
-            font-weight: bold;
-          }
-          :hover{
-            opacity: 100%;
-            cursor: pointer;
-          }
-          .active{
-            opacity: 100%;
-          }
-        }
-      }
-    }
-    .person_box {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-bottom: 40px;
-      .item_person {
-        background-color: black;
-        height: 444px;
-        color: white;
-        padding: 37px;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        .name {
-          font-weight: bold;
-          font-size: 27px;
-        }
-        .original_name {
-          color: grey;
-          font-size: 20px;
-        }
-        .age {
-          color: gold;
-          font-size: 15px;
-        }
-      }
-      .person_place_list {
-        height: 100%;
-        background-color: rgba(27, 33, 51, 0.7);
-        box-shadow: 0 0 10px grey;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        color: white;
-        border-radius: 10px;
-        padding: 30px;
-        .person_place {
-          height: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          .left {
-            .name{
-              font-weight: bold;
-              font-size: 20px;
-            }
-            .original_name{
-              font-weight: 15px;
-              color: grey;
-            }
-            .age{
-              font-size: 14px;
-              color: gold;
-            }
-          }
-          .right{
-            p{
-              font-size: 15px;
-              color: gold;
-            }
-          }
-        }      
-      }
-    }
-
-
-
-
-
-    
-  }
-}
-
-footer{
-  .container{
-    max-width: 1920px;
-    padding: 40px;
-    .coming_soon{
-      display: flex;
-      flex-direction: column;
-      color: white;
-      .title{
-        display: flex;
-        justify-content: space-between;
-        h1{
-          font-size: 65px;
-        }
-        .slider{
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          img{
-            width: 25px;
-            height: 25px;
-            opacity: 70%;
-          }
-          :hover{
-            opacity: 100%;
-            cursor: pointer;
-          }
-          p{
-            font-size: 20px;
-          }
-        }
-      }
-      .item_box{
-        padding-top: 50px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
-        gap: 40px;
-        .item_movie{
-          width: fit-content;
-          position: relative;
-          .poster_movie{
-            width: 100%;
-            height: 80%;
-            border-radius: 15px;
-            box-shadow: 0 0 15px black;
-            cursor: pointer;
-          }
-          .name_movie{
-            cursor: pointer;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-          }
-          .genre_movie{
-            color: gold;
-            font-size: 15px;
-          }
-        }
-      }
-    }
-    .box_office{
-      display: flex;
-      flex-direction: column;
-      color: white;
-      .title{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 50px;
-        .left{
-          display: flex;
-          align-items: center;
-          gap: 50px;
-          h1{
-            font-size: 65px;
-          }
-          p{
-            padding-top: 20px;
-            font-size: 20px;
-          }
-        }
-        .right{
-          ul{
-            display: flex;
-            gap: 40px;
-            li{
-              list-style: none;
-              opacity: 60%;
-            }
-            .active{
-              opacity: 100%;
-            }
-            :hover{
-              opacity: 100%;
-              cursor: pointer;
-            }
-          }
-        }
-      }
-      .movie_list{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: auto;
-        gap: 30px;
-        .item_movie{
-          width: 135px;
-          height: 181px;
-          display: flex;
-          gap: 20px;
-          img{
-            width: 100%;
-            height: 100%;
-          }
-          .movie_info {
-            display: flex;
             flex-direction: column;
-            p{
-              width: fit-content;
+
+            .title_genre {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 20px;
+
+                h1 {
+                    width: 20%;
+                    color: white;
+                }
+
+                .genre {
+                    width: 80%;
+                    overflow: hidden;
+
+                    ul {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 22px;
+                        color: white;
+                        list-style: none;
+                        overflow-x: scroll;
+
+                        li {
+                            font-weight: bold;
+                            cursor: pointer;
+                            opacity: 70%;
+                        }
+
+                        .active {
+                            opacity: 100%;
+                        }
+
+                        li:hover {
+                            opacity: 100%;
+                        }
+                    }
+
+                    ::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
             }
-          }
         }
-      }
-      .blue_background {
-        width: 100%;
-        height: 548px;
-        background: url('./public/footer_bg.png');
-        margin-top: 40px;
-        position: relative;
-        border-radius: 10px;
-        .subscription{
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          .logo{
+
+        .now_playing {
+            padding: 50px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-rows: auto;
+            gap: 40px;
+
+            .item_movie {
+                width: fit-content;
+                position: relative;
+
+                .poster_movie {
+                    width: 100%;
+                    height: 80%;
+                    background-size: cover;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px black;
+                    opacity: 100%;
+                    position: relative;
+                }
+
+                .hover_bg {
+                    width: 100%;
+                    height: 80%;
+                    background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    border-radius: 15px;
+                    box-shadow: inset 0 0 50px black;
+                    justify-content: center;
+                    align-items: end;
+                    display: none;
+                    animation: hover .5s linear forwards;
+
+                    @keyframes hover {
+                        from {
+                            opacity: 0%;
+                        }
+
+                        to {
+                            opacity: 100%;
+                        }
+                    }
+
+                    .hover_bg_btn {
+                        width: 80%;
+                        background-color: white;
+                        background-size: 1000px;
+                        box-shadow: 0 0 100px 50px black;
+                        text-shadow: 0 0 1px black;
+                        padding: 15px 30px;
+                        font-size: 25px;
+                        font-weight: bold;
+                        color: #192a67;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        margin-bottom: 10%;
+                    }
+                }
+
+                .name_movie {
+                    cursor: pointer;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                .genre_movie {
+                    color: gold;
+                    font-size: 15px;
+                }
+
+                .rating_box {
+                    width: 65px;
+                    height: 35px;
+                    border-radius: 5px;
+                    background-color: rgb(137, 203, 54);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+
+                    .rating {
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.new_movie_btn {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 71px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    background: none;
+    cursor: pointer;
+}
+
+section {
+    .container {
+        max-width: 1920px;
+        padding: 0 40px;
+
+        .trailer_box {
+            .title_treiler {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h1 {
+                    font-size: 50px;
+                    font-weight: bold;
+                    color: white;
+                }
+
+                button {
+                    background: none;
+                    color: white;
+                    font-size: 22px;
+                    font-weight: bold;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 27px;
+
+                    img {
+                        padding-top: 7px;
+                    }
+                }
+            }
+
+            .video {
+                width: 100%;
+                height: 1070px;
+                margin-top: 40px;
+                box-shadow: 0 0 15px black;
+
+                iframe {
+                    background: black;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+            }
+
+            .title_box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 20px;
+
+                .bottom_title {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    h1 {
+                        font-size: 50px;
+                        color: white;
+                    }
+
+                    .social_box {
+                        display: flex;
+                        gap: 20px;
+
+                        img {
+                            width: 25px;
+                            opacity: 50%;
+                        }
+
+                        :hover {
+                            opacity: 100%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .assessment_counter {
+                    display: flex;
+                    gap: 20px;
+
+                    .like,
+                    .dislike {
+                        background-color: #1B2133;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 60px;
+                        height: 60px;
+                        position: relative;
+
+                        img {
+                            padding-bottom: 8px;
+                            opacity: 60%;
+                        }
+
+                        p {
+                            position: absolute;
+                            color: white;
+                            bottom: -25px;
+                        }
+
+                        :hover {
+                            opacity: 100%;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .dislike {
+                        img {
+                            padding-bottom: 0;
+                            padding-top: 8px;
+                            opacity: 60%;
+                        }
+
+                        :hover {
+                            opacity: 100%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .trailer_list_video {
+                margin-top: 40px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+
+                .trailer_movie {
+                    position: relative;
+                }
+
+                .iframe {
+                    background-color: black;
+                    width: 100%;
+                    height: 207px;
+                    border-radius: 20px;
+                }
+
+                .iframe::after {
+                    content: '';
+                    background-color: white;
+                    background-image: url('./public/play_circle.svg');
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    width: 80px;
+                    height: 80px;
+                    background-size: 80px 80px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                p {
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+section {
+    .container {
+        max-width: 1920px;
+        padding: 0 40px;
+
+        .popular {
+            margin-top: 40px;
+            color: white;
+
+            .title_popular {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h1 {
+                    font-size: 40px;
+                }
+
+                ul {
+                    display: flex;
+                    gap: 20px;
+
+                    li {
+                        list-style: none;
+                        font-weight: bold;
+                        opacity: 50%;
+                    }
+
+                    :hover {
+                        opacity: 80%;
+                        cursor: pointer;
+                    }
+
+                    .active {
+                        opacity: 100%;
+                    }
+                }
+            }
+        }
+
+        .popular_movie {
+            padding-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 40px;
+
+            .item_movie {
+                width: fit-content;
+                position: relative;
+
+                .poster_movie {
+                    width: 100%;
+                    height: 80%;
+                    border-radius: 15px;
+                    box-shadow: 0 0 15px black;
+                    cursor: pointer;
+                }
+
+                .hover_bg {
+                    width: 100%;
+                    height: 80%;
+                    background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    border-radius: 15px;
+                    box-shadow: inset 0 0 50px black;
+                    justify-content: center;
+                    align-items: end;
+                    display: none;
+                    animation: hover .5s linear forwards;
+
+                    @keyframes hover {
+                        from {
+                            opacity: 0%;
+                        }
+
+                        to {
+                            opacity: 100%;
+                        }
+                    }
+
+                    .hover_bg_btn {
+                        width: 80%;
+                        background-color: white;
+                        background-size: 1000px;
+                        box-shadow: 0 0 100px 50px black;
+                        text-shadow: 0 0 1px black;
+                        padding: 15px 30px;
+                        font-size: 25px;
+                        font-weight: bold;
+                        color: #192a67;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        margin-bottom: 10%;
+                    }
+                }
+
+                .name_movie {
+                    cursor: pointer;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                .genre_movie {
+                    color: gold;
+                    font-size: 15px;
+                }
+
+                .rating_box {
+                    width: 65px;
+                    height: 35px;
+                    border-radius: 5px;
+                    background-color: rgb(137, 203, 54);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+
+                    .rating {
+                        color: white;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        .slider {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 10px;
-          }
-          .sub_title {
-            display: flex;
-            flex-direction: column;
-            span{
-              margin-top: 53px;
-              font-size: 50px;
-              font-weight: bold;
-              text-align: center;
+
+            p {
+                font-size: 20px;
             }
-            p{
-              margin-top: 26px;
-              text-align: center;
-              width: 680px;
-              font-size: 22px;
-            }
-            form{
-              margin-top: 34px;
-              display: flex;
-              justify-content: center;
-              gap: 8px;
-              input{
-                width: 425px;
-                height: 71px;
-                border-radius: 10px;
-                outline: none;
-                padding: 20px;
-                font-size: 17px;
+
+            button {
+                background: none;
                 border: none;
-              }
-              button{
-                width: 182px;
-                height: 71px;
-                background-color: gold;
-                color: black;
-                font-weight: bold;
-                font-size: 23px;
-                border: none;
-                border-radius: 10px;
-                cursor: pointer;
-                opacity: 80%;
-              }
-              button:hover{
-                opacity: 100%;
-              }
-            }
-            .checkbox{
-              margin-top: 22px;
-              text-align: center;
-              font-size: 17px;
-              label{
-                a{
-                  color: gold;
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                    cursor: pointer;
                 }
-              }
             }
-          }
         }
-      }
-      .blue_background::before{
-        content: '';
-        background: rgba(29, 58, 160, 0.90);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;        
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0, 0, 68, 0.7);
-      }
-      .socials{
-        margin-top: 61px;
-        width: 100%;
-        display: flex;
-        gap: 40px;
-        justify-content: center;
-        img{
-          opacity: 50%;
-        }
-        img:hover{
-          opacity: 100%;
-          cursor: pointer;
-        }
-      }
-      nav{
-        width: 100%;
-        margin-top: 34px;
-        ul{
-          display: flex;
-          justify-content: center;
-          gap: 40px;
-          color: white;
-          font-weight: bold;
-          li{
-            list-style: none;
-            opacity: 80%;
-          }
-          li:hover{
-            opacity: 100%;
-            cursor: pointer;
-          }
-        }
-      }
-      .footer{
-        color: rgba(227, 230, 240, 0.72);
-        text-align: center;
-        font-size: 15px;
-        p{
-          margin: 41px 0 26px 0;
-        }
-        a{
-          color: rgba(227, 230, 240, 0.72);
-        }
-      }
     }
-  }
 }
 
+section {
+    .container {
+        max-width: 1920px;
 
+        .popular_person {
+            .person_title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 63px;
+
+                h1 {
+                    font-size: 40px;
+                    color: white;
+                }
+
+                ul {
+                    display: flex;
+                    gap: 20px;
+
+                    li {
+                        color: white;
+                        list-style: none;
+                        opacity: 50%;
+                        font-weight: bold;
+                    }
+
+                    :hover {
+                        opacity: 100%;
+                        cursor: pointer;
+                    }
+
+                    .active {
+                        opacity: 100%;
+                    }
+                }
+            }
+        }
+
+        .person_box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+
+            .item_person {
+                background-color: black;
+                height: 444px;
+                color: white;
+                padding: 37px;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+
+                .name {
+                    font-weight: bold;
+                    font-size: 27px;
+                }
+
+                .original_name {
+                    color: grey;
+                    font-size: 20px;
+                }
+
+                .age {
+                    color: gold;
+                    font-size: 15px;
+                }
+            }
+
+            .person_place_list {
+                height: 100%;
+                background-color: rgba(27, 33, 51, 0.7);
+                box-shadow: 0 0 10px grey;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                color: white;
+                border-radius: 10px;
+                padding: 30px;
+
+                .person_place {
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .left {
+                        .name {
+                            font-weight: bold;
+                            font-size: 20px;
+                        }
+
+                        .original_name {
+                            font-weight: 15px;
+                            color: grey;
+                        }
+
+                        .age {
+                            font-size: 14px;
+                            color: gold;
+                        }
+                    }
+
+                    .right {
+                        p {
+                            font-size: 15px;
+                            color: gold;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+    }
+}
+
+footer {
+    .container {
+        max-width: 1920px;
+        padding: 40px;
+
+        .coming_soon {
+            display: flex;
+            flex-direction: column;
+            color: white;
+
+            .title {
+                display: flex;
+                justify-content: space-between;
+
+                h1 {
+                    font-size: 65px;
+                }
+
+                .slider {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        opacity: 70%;
+                    }
+
+                    :hover {
+                        opacity: 100%;
+                        cursor: pointer;
+                    }
+
+                    p {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .item_box {
+                padding-top: 50px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto;
+                gap: 40px;
+
+                .item_movie {
+                    width: fit-content;
+                    position: relative;
+
+                    .poster_movie {
+                        width: 100%;
+                        height: 80%;
+                        border-radius: 15px;
+                        box-shadow: 0 0 15px black;
+                        cursor: pointer;
+                    }
+
+                    .hover_bg {
+                        width: 100%;
+                        height: 80%;
+                        background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        border-radius: 15px;
+                        box-shadow: inset 0 0 50px black;
+                        justify-content: center;
+                        align-items: end;
+                        display: none;
+                        animation: hover .5s linear forwards;
+
+                        @keyframes hover {
+                            from {
+                                opacity: 0%;
+                            }
+
+                            to {
+                                opacity: 100%;
+                            }
+                        }
+
+                        .hover_bg_btn {
+                            width: 80%;
+                            background-color: white;
+                            background-size: 1000px;
+                            box-shadow: 0 0 100px 50px black;
+                            text-shadow: 0 0 1px black;
+                            padding: 15px 30px;
+                            font-size: 25px;
+                            font-weight: bold;
+                            color: #192a67;
+                            border: none;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-bottom: 10%;
+                        }
+                    }
+
+                    .name_movie {
+                        cursor: pointer;
+                        color: white;
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+
+                    .genre_movie {
+                        color: gold;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .box_office {
+            display: flex;
+            flex-direction: column;
+            color: white;
+
+            .title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 50px;
+
+                .left {
+                    display: flex;
+                    align-items: center;
+                    gap: 50px;
+
+                    h1 {
+                        font-size: 65px;
+                    }
+
+                    p {
+                        padding-top: 20px;
+                        font-size: 20px;
+                    }
+                }
+
+                .right {
+                    ul {
+                        display: flex;
+                        gap: 40px;
+
+                        li {
+                            list-style: none;
+                            opacity: 60%;
+                        }
+
+                        .active {
+                            opacity: 100%;
+                        }
+
+                        :hover {
+                            opacity: 100%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .movie_list {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: auto;
+                gap: 30px;
+
+                .item_movie {
+                    width: 135px;
+                    height: 181px;
+                    display: flex;
+                    gap: 20px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .movie_info {
+                        display: flex;
+                        flex-direction: column;
+
+                        p {
+                            width: fit-content;
+                        }
+                    }
+                }
+            }
+
+            .blue_background {
+                width: 100%;
+                height: 548px;
+                background: url('./public/footer_bg.png');
+                margin-top: 40px;
+                position: relative;
+                border-radius: 10px;
+
+                .subscription {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .logo {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+
+                    .sub_title {
+                        display: flex;
+                        flex-direction: column;
+
+                        span {
+                            margin-top: 53px;
+                            font-size: 50px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+
+                        p {
+                            margin-top: 26px;
+                            text-align: center;
+                            width: 680px;
+                            font-size: 22px;
+                        }
+
+                        form {
+                            margin-top: 34px;
+                            display: flex;
+                            justify-content: center;
+                            gap: 8px;
+
+                            input {
+                                width: 425px;
+                                height: 71px;
+                                border-radius: 10px;
+                                outline: none;
+                                padding: 20px;
+                                font-size: 17px;
+                                border: none;
+                            }
+
+                            button {
+                                width: 182px;
+                                height: 71px;
+                                background-color: gold;
+                                color: black;
+                                font-weight: bold;
+                                font-size: 23px;
+                                border: none;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                opacity: 80%;
+                            }
+
+                            button:hover {
+                                opacity: 100%;
+                            }
+                        }
+
+                        .checkbox {
+                            margin-top: 22px;
+                            text-align: center;
+                            font-size: 17px;
+
+                            label {
+                                a {
+                                    color: gold;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .blue_background::before {
+                content: '';
+                background: rgba(29, 58, 160, 0.90);
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 0;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 68, 0.7);
+            }
+
+            .socials {
+                margin-top: 61px;
+                width: 100%;
+                display: flex;
+                gap: 40px;
+                justify-content: center;
+
+                img {
+                    opacity: 50%;
+                }
+
+                img:hover {
+                    opacity: 100%;
+                    cursor: pointer;
+                }
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 34px;
+
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    gap: 40px;
+                    color: white;
+                    font-weight: bold;
+
+                    li {
+                        list-style: none;
+                        opacity: 80%;
+                    }
+
+                    li:hover {
+                        opacity: 100%;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .footer {
+                color: rgba(227, 230, 240, 0.72);
+                text-align: center;
+                font-size: 15px;
+
+                p {
+                    margin: 41px 0 26px 0;
+                }
+
+                a {
+                    color: rgba(227, 230, 240, 0.72);
+                }
+            }
+        }
+    }
+}
+}

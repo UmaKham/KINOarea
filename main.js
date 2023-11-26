@@ -59,3 +59,16 @@ getData('/movie/popular')
     .then(movies => {
         reload_box_office(movies.data.results.slice(0, 5), movie_list)
     });
+
+/////////////////// SEARCH_MOVIE ///////////////////
+
+let search_box = document.querySelector('.search_box')
+let search_btn = document.querySelector('.search')
+
+search_btn.onclick = () => {
+    if(search_box.classList.contains('visible')) {
+        search_box.classList.remove('visible')
+    } else {
+        search_box.classList.add('visible')
+    }
+}

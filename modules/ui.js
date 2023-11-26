@@ -7,6 +7,9 @@ export function reload_movie(arr, place, genres) {
         let genre_movie = document.createElement('p')
         let rating_box = document.createElement('div')
         let rating = document.createElement('p')
+
+        let hover_bg = document.createElement('div')
+        let hover_bg_btn = document.createElement('button')
         
         let genre_titles = []
         
@@ -18,7 +21,8 @@ export function reload_movie(arr, place, genres) {
             }
         }
         place.append(item_movie)
-        item_movie.append(poster_movie, name_movie, genre_movie, rating_box)
+        item_movie.append(poster_movie, hover_bg, name_movie, genre_movie, rating_box)
+        hover_bg.append(hover_bg_btn)
         rating_box.append(rating)
         
         item_movie.classList.add('item_movie')
@@ -27,14 +31,25 @@ export function reload_movie(arr, place, genres) {
         genre_movie.classList.add('genre_movie')
         rating_box.classList.add('rating_box')
         rating.classList.add('rating')
-        
+
+        hover_bg.classList.add('hover_bg')
+        hover_bg_btn.classList.add('hover_bg_btn')
+
         poster_movie.src = 'https://image.tmdb.org/t/p/original/' + item.poster_path
         name_movie.innerHTML = item.title
         genre_movie.innerHTML = genre_titles.join(', ')
         rating.innerHTML = item.vote_average.toFixed(2)
+
+        hover_bg_btn.innerHTML = 'Карточка фильма'
+
+        poster_movie.onmousemove = () => {
+            hover_bg.style.display = 'flex'
+        }
+        hover_bg.onmouseleave = () => {
+            hover_bg.style.display = 'none'
+        }
     }
 }
-
 
 export function reload_actors(arr, place) {
     for(let actor of arr) {
@@ -109,3 +124,4 @@ export function reload_box_office(arr, place) {
         box_office_four_week.innerHTML = '$15 млн долларов за 4 недели'
     }
 }
+
