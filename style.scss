@@ -225,19 +225,20 @@ main {
                     }
 
                     .hover_bg_btn {
-                        width: 80%;
-                        background-color: white;
-                        background-size: 1000px;
-                        box-shadow: 0 0 100px 50px black;
-                        text-shadow: 0 0 1px black;
-                        padding: 15px 30px;
-                        font-size: 25px;
-                        font-weight: bold;
-                        color: #192a67;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        margin-bottom: 10%;
+                    background-color: #131e48;
+                    box-shadow: 0 0 15px black;
+                    border-radius: 5px;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 0 30px;
+                    height: 40px;
+                    cursor: pointer;
+                    margin-bottom: 30px;
+                    }
+                    .hover_bg_btn:hover{
+                        background-color: #1a2a68;
                     }
                 }
 
@@ -545,19 +546,20 @@ section {
                     }
 
                     .hover_bg_btn {
-                        width: 80%;
-                        background-color: white;
-                        background-size: 1000px;
-                        box-shadow: 0 0 100px 50px black;
-                        text-shadow: 0 0 1px black;
-                        padding: 15px 30px;
-                        font-size: 25px;
-                        font-weight: bold;
-                        color: #192a67;
-                        border: none;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        margin-bottom: 10%;
+                    background-color: #131e48;
+                    box-shadow: 0 0 15px black;
+                    border-radius: 5px;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bold;
+                    padding: 0 30px;
+                    height: 40px;
+                    cursor: pointer;
+                    margin-bottom: 30px;
+                    }
+                    .hover_bg_btn:hover{
+                        background-color: #1a2a68;
                     }
                 }
 
@@ -825,20 +827,21 @@ footer {
                         }
 
                         .hover_bg_btn {
-                            width: 80%;
-                            background-color: white;
-                            background-size: 1000px;
-                            box-shadow: 0 0 100px 50px black;
-                            text-shadow: 0 0 1px black;
-                            padding: 15px 30px;
-                            font-size: 25px;
-                            font-weight: bold;
-                            color: #192a67;
-                            border: none;
-                            border-radius: 5px;
-                            cursor: pointer;
-                            margin-bottom: 10%;
+                        background-color: #131e48;
+                        box-shadow: 0 0 15px black;
+                        border-radius: 5px;
+                        border: none;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 0 30px;
+                        height: 40px;
+                        cursor: pointer;
+                        margin-bottom: 30px;
                         }
+                        .hover_bg_btn:hover{
+                            background-color: #1a2a68;
+                    }
                     }
 
                     .name_movie {

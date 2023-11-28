@@ -86,11 +86,9 @@ btn_close.onclick = (e) => {
         search_input.value = ''
     }
 }
-
 search_input.onfocus = () => {
     results_box.style.height = '550px'
 }
-
 search_input.onkeyup = () => {
 
     Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list')])
@@ -99,3 +97,6 @@ search_input.onkeyup = () => {
             reload_search_movie(movies.data.results, results_box, genres.data.genres)
         })
 }
+
+/////////////////// DYNAMIC_PAGE ///////////////////
+
