@@ -207,7 +207,6 @@ export function reload_search_actor(arr, place) {
     actor_img.src = `https://api.themoviedb.org/3/person/${actor.id}/images/` + actor.profile_path
     actor_name.innerHTML = actor.name
     actor_original_name.innerHTML = actor.original_name
-    console.log(actor.profile_path);
     }
 }
 
@@ -232,20 +231,83 @@ getData('/genre/movie/list')
             })
 
 /////////////////// RELOAD_TRAILER /////////////////////
+trailer(299536)
+
 export function reload_trailer (arr, place) {
     for(let item of arr) {
         let trailer_item = document.createElement('div')
-        let backdrop_img = document.createElement('div')
+        let backdrop_img = document.createElement('img')
         let trailer_name = document.createElement('p')
+        let play = document.createElement('div')
 
         trailer_item.classList.add('trailer_item')
         backdrop_img.classList.add('backdrop_img')
         trailer_name.classList.add('trailer_name')
+        play.classList.add('play')
 
         place.append(trailer_item)
-        trailer_item.append(backdrop_img, trailer_name)
+        trailer_item.append(backdrop_img, trailer_name, play)
 
-        backdrop_img.style = `background: url('https://image.tmdb.org/t/p/original${item.backdrop_path}')` 
-        trailer_name = item.title
+        backdrop_img.src = `https://image.tmdb.org/t/p/original${item.backdrop_path}` 
+        trailer_name.innerHTML = item.title
+
+        play.onclick = () => {
+            trailer(item.id);
+        }
+    }
+}
+
+export function trailer(id) {
+    let iframe = document.querySelector('.video iframe')
+    getData(`/movie/${id}/videos`)
+        .then((res) => {
+            let key = res.data.results[0].key;
+            iframe.src = `https://www.youtube.com/embed/${key}` 
+        })
+} 
+
+/////////////////// PERSON_LIST /////////////////////
+export function reload_person(arr, place) {
+    for(let person of arr) {
+        let item = document.createElement('div')
+        let title = document.createElement('div')
+        let name = document.createElement('span')
+        let original_name = document.createElement('p')
+        let age = document.createElement('p')
+    
+        place.prepend(item)
+        item.append(title)
+        title.append(name, original_name, age)
+
+        item.classList.add('item_person')
+        title.classList.add('title')
+        name.classList.add('name')
+        original_name.classList.add('original_name')
+        age.classList.add('age')
+
+        item.style.background = `url(https://image.tmdb.org/t/p/original${person.profile_path}) no-repeat center / cover`
+        name.innerHTML = person.name
+        original_name.innerHTML = person.original_name
+    }
+}
+export function reload_person_list(arr, place) {
+    place.innerHTML = ''
+    for(let person of arr) {
+        let list_item = document.createElement('div')
+        let list_left = document.createElement('div')
+        let list_name = document.createElement('p')
+        let list_original_name = document.createElement('p')
+
+        place.append(list_item)
+        list_item.append(list_left)
+        list_left.append(list_name, list_original_name)
+
+        list_item.classList.add('list_item')
+        list_left.classList.add('list_left')
+        list_name.classList.add('list_name')
+        list_original_name.classList.add('original_name')
+
+        list_name.innerHTML = person.name
+        list_original_name.innerHTML = person.original_name
     }
 }

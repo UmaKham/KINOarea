@@ -6,11 +6,12 @@ import {
     reload_coming_soon, 
     reload_search_movie,
     reload_search_actor,
-    reload_trailer
+    reload_trailer,
+    reload_person,
+    reload_person_list
 } from './modules/ui'
 
 /////////////////// NOW-PLAYING ///////////////////
-
 let movie_box = document.querySelector('.now_playing')
 
 Promise.all([getData('/movie/now_playing'), getData('/genre/movie/list')])
@@ -25,7 +26,6 @@ now_playing_btn.onclick = () => {
 }
 
 /////////////////// POPULAR-MOVIE ///////////////////
-
 let popular_movie = document.querySelector('.popular_movie')
 
 Promise.all([getData('/movie/popular'), getData('/genre/movie/list')])
@@ -34,7 +34,6 @@ Promise.all([getData('/movie/popular'), getData('/genre/movie/list')])
     });
 
 /////////////////// POPULAR-ACTORS ///////////////////
-
 let popular_person = document.querySelector('.popular_person')
 
 getData('/person/popular')
@@ -55,7 +54,6 @@ getData(`/person/3194176/images`)
     })
 
 /////////////////// COMING-SOON ///////////////////
-
 let coming_soon = document.querySelector('.item_box')
 
 Promise.all([getData('/movie/upcoming'), getData('/genre/movie/list')])
@@ -73,7 +71,6 @@ getData('/movie/popular')
     });
 
 /////////////////// SEARCH_MOVIE ///////////////////
-
 let search_input = document.querySelector('.search_input')
 let search_boxs = document.querySelector('.search_boxs')
 let results_box = document.querySelector('.movie_box')
@@ -96,6 +93,7 @@ function saveInput() {
     Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list')])
     .then(([movies, genres]) => {
         reload_search_movie(movies.data.results, results_box, genres.data.genres)
+        console.log(movies.data.results);
     })
 
 getData(`/search/person?query=${search_input.value}&page=1`)
@@ -105,7 +103,6 @@ getData(`/search/person?query=${search_input.value}&page=1`)
 }
 getData(`/search/person?query=statham&page=1`)
     .then((res) => {
-        console.log(res.data.results);
         // reload_search_actor(res.data.results, actor_box);
     })
 
@@ -132,10 +129,20 @@ search_input.onkeyup = () => {
 }
 
 /////////////////// TRAILER_LIST_VIDEO ///////////////////
-
 let trailer_list_video = document.querySelector('.trailer_list_video')
 
 getData('/movie/top_rated')
     .then((res) => {
         reload_trailer(res.data.results, trailer_list_video);
+    })
+
+
+/////////////////// PERSON_LIST /////////////////////
+let person_box = document.querySelector('.person_box')
+let person_place_list = document.querySelector('.person_place_list')
+console.log(person_place_list);
+getData('/person/popular')
+    .then((res) => {
+        reload_person(res.data.results.slice(0, 2), person_box);
+        reload_person_list(res.data.results, person_place_list);
     })
