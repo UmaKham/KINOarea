@@ -1,14 +1,17 @@
-import { getData } from './modules/helpers'
-import { 
-    reload_movie, 
-    reload_actors, 
-    reload_box_office, 
-    reload_coming_soon, 
+import {
+    getData
+} from './modules/helpers'
+import {
+    reload_movie,
+    reload_actors,
+    reload_box_office,
+    reload_coming_soon,
     reload_search_movie,
     reload_search_actor,
     reload_trailer,
     reload_person,
-    reload_person_list
+    reload_person_list,
+    reload_genres
 } from './modules/ui'
 
 /////////////////// NOW-PLAYING ///////////////////
@@ -39,7 +42,7 @@ let popular_person = document.querySelector('.popular_person')
 getData('/person/popular')
     .then(res => {
         reload_actors(res.data.results, popular_person)
-        
+
     })
 
 let actors_ids = []
@@ -50,8 +53,7 @@ getData('/person/popular')
     })
 
 getData(`/person/3194176/images`)
-    .then(res => {
-    })
+    .then(res => {})
 
 /////////////////// COMING-SOON ///////////////////
 let coming_soon = document.querySelector('.item_box')
@@ -81,7 +83,7 @@ let search_box = document.querySelector('.search_box')
 
 function debounce(func, timeout = 600) {
     let timer;
-    return (... args) => {
+    return (...args) => {
         clearTimeout(timer);
         timer = setTimeout(() => {
             func.apply(this, args);
@@ -90,16 +92,11 @@ function debounce(func, timeout = 600) {
 }
 
 function saveInput() {
-    Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list')])
-    .then(([movies, genres]) => {
-        reload_search_movie(movies.data.results, results_box, genres.data.genres)
-        console.log(movies.data.results);
-    })
-
-getData(`/search/person?query=${search_input.value}&page=1`)
-.then((res) => {
-    reload_search_actor(res.data.results, actor_box);
-})
+    Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list'), getData(`/search/person?query=${search_input.value}`)])
+        .then(([movies, genres, actors]) => {
+            reload_search_movie(movies.data.results, results_box, genres.data.genres)
+            reload_search_actor(actors.data.results, actor_box);
+        })
 }
 getData(`/search/person?query=statham&page=1`)
     .then((res) => {
@@ -116,7 +113,7 @@ search_btn.onclick = () => {
     document.body.style.overflow = 'hidden'
 }
 btn_close.onclick = (e) => {
-    if(e.target.getAttribute('data-close') !== null) {
+    if (e.target.getAttribute('data-close') !== null) {
         search_box.classList.remove('visible')
         search_input.value = ''
     }
@@ -145,4 +142,19 @@ getData('/person/popular')
     .then((res) => {
         reload_person(res.data.results.slice(0, 2), person_box);
         reload_person_list(res.data.results, person_place_list);
+    })
+
+
+// genres //
+let genre_list = document.querySelector('.title_genre ul')
+
+getData('/genre/movie/list')
+    .then((genres_res) => {
+        const {
+            data: {
+                genres
+            }
+        } = genres_res
+
+        reload_genres(genres, genre_list)
     })
