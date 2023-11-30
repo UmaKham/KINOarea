@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ysabeau+Infant:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pages/new/style.scss">
+    <title>MOVIE</title>
+  </head>
+  <body>
+    
+    <img class="background_image" src="" alt="">
+    
+    <main>
+      <div class="container">
+        <header>
+          <div class="logo">
+            <a href="/" class="logotype">
+              <img src="/public/cinema logo1.svg" alt="">
+              <img src="/public/cinema_logo2.svg" alt="">
+            </a>
+            <div class="social">
+              <img class="icon" src="/public/vk_icon.png" alt="">
+              <img class="icon active" src="/public/instagram_icon.png" alt="">
+              <img class="icon" src="/public/fb_icon.svg" alt="">
+              <img class="icon" src="/public/twitter_icon.svg" alt="">
+            </div>
+          </div>
+          <nav>
+            <ul class="list_genre">
+              <li>Афиша</li>
+              <li>Медиа</li>
+              <li>Фильмы</li>
+              <li>Актёры</li>
+              <li>Новости</li>
+              <li>Подборки</li>
+              <li>Категории</li>
+            </ul>
+          </nav>
+          <div class="header_btns">
+            <button class="search">
+            </button>
+            <button class="login">Войти</button>
+          </div>
+        </header>
+
+        <section>
+          <div class="container">
+            <div class="title_genre">
+              <h1>Сейчас в кино</h1>
+                <div class="genre">
+                  <ul>
+                    <li class="all active">Все</li>
+                    <li>Боевик</li>
+                    <li>Приключения</li>
+                    <li>Мультфильм</li>
+                    <li>Комедия</li>
+                    <li>Криминал</li>
+                    <li>Документальный</li>
+                    <li>Драма</li>
+                    <li>Семейный</li>
+                    <li>Фэнтези</li>
+                    <li>История</li>
+                    <li>Ужасы</li>
+                    <li>Музыка</li>
+                    <li>Детектив</li>
+                    <li>Мелодрама</li>
+                    <li>Фантастика</li>
+                    <li>Телевизионный</li>
+                    <li>Триллер</li>
+                    <li>Военный</li>
+                    <li>Вестерн</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+
+          <div class="now_playing"></div>
+          <div class="now_playing2"></div>
+
+        </section>
+      </div>
+    </main>
+
+
+
+    <footer>
+      <div class="container">
+
+        <div class="box_office">
+        
+          <div class="blue_background">
+            <div class="subscription">
+              <div class="logo">
+                <img src="/public/cinema logo1.svg" width="24px" alt="">
+                <img src="/public/cinema_logo2.svg" width="100px" alt="">
+              </div>
+              <div class="sub_title">
+                <span>Подпишитесь на E-mail рассылку</span>
+                <p>Если хотите быть в курсе последних новостей и новинок кино - заполните форму ниже и оформите бесплатную E-mail рассылку!</p>
+                <form  name="e-mail_subscription">
+                  <input type="e-mail" placeholder="Введите свой E-mail адрес">
+                  <button type="submit">Подписаться</button>
+                </form>
+                  <div class="checkbox">
+                    <input name="checkbox" type="checkbox">
+                    <label for="checkbox">
+                      Соглашаюсь на условия 
+                      <a href="#">Политики конфиденциальности</a>
+                    </label>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="socials">
+            <img src="/public/vk_icon.png" width="25" alt="">
+            <img src="/public/instagram_icon.png" width="25" alt="">
+            <img src="/public/fb_icon.svg" width="25" alt="">
+            <img src="/public/twitter_icon.svg" width="25" alt="">
+            <img src="/public/youtube_logo.svg" width="25" alt="">
+          </div>
+
+          <nav>
+            <ul>
+              <li>Афиша</li>
+              <li>Новости</li>
+              <li>Персоны</li>
+              <li>Рейтинги</li>
+              <li>Рецензии</li>
+              <li>Каталог фильмов</li>
+            </ul>
+          </nav>
+
+          <div class="footer">
+            <p>2020 © Kinoarea.  Все права защищены</p>
+            <a href="#">Политика конфиденциальности</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <div class="search_box">
+      
+      <div class="modal_bg" data-close></div>
+      
+      <div class="search_movie">
+        
+        <input class="search_input" type="text">
+        <button class="search_btn"></button>
+        
+        <div class="results_box">
+        </div>    
+      
+      </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

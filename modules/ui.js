@@ -1,3 +1,5 @@
+import { Logger } from 'sass'
+import { getData } from './helpers'
 
 export function reload_movie(arr, place, genres) {
     place.innerHTML = ''
@@ -13,7 +15,7 @@ export function reload_movie(arr, place, genres) {
         let hover_bg_btn = document.createElement('button')
 
         hover_bg_btn.onclick = () => {
-            location.assign(`http://localhost:5173/pages/movie/index.html?id=` + item.id)
+            location.assign(`http://localhost:5173/pages/movie/?id=` + item.id)
         }
         
         let genre_titles = []
@@ -127,8 +129,7 @@ export function reload_box_office(arr, place) {
     }
 }
 
-/////////////////// SEARCH_MOVIE_RELOAD ///////////////////
-
+/////////////////// SEARCH_MOVIE_&_ACTORS_RELOAD ///////////////////
 export function reload_search_movie(arr, place, genres) {
     place.innerHTML = ""
     for(let movie of arr) {
@@ -182,27 +183,69 @@ export function reload_search_movie(arr, place, genres) {
     } 
     }
 }
+export function reload_search_actor(arr, place) {
+    place.innerHTML = ""
+    for(let actor of arr) {
+    let actor_item = document.createElement('div')
+    let actor_img = document.createElement('img')
+    let actor_title_box = document.createElement('div')
+    let actor_name = document.createElement('p')
+    let actor_original_name = document.createElement('p')
+    let actor_post = document.createElement('p')
 
-/////////////////// RELOAD_MOVIE_INFO /////////////////////
+    place.append(actor_item)
+    actor_item.append(actor_img, actor_title_box)
+    actor_title_box.append(actor_name, actor_original_name, actor_post)
 
-export function reload_movie_info(arr, place) {
-    let movie_poster = document.querySelector('.movie_poster')
-    let movie_name = document.querySelectorAll('.movie_name')
-    let movie_original_name = document.querySelector('.movie_original_name')
-    let color_rating_kinoarea = document.querySelector('.wrap_kinoarea')
-    let rating_kinoarea = document.querySelector('.kinoarea')
-    let color_rating_imdb = document.querySelector('.wrap_imdb')
-    let rating_imdb = document.querySelector('.imdb')
-    let about_movie_desc = document.querySelector('.about_movie')
-    let year = document.querySelector('.year')
-    let country = document.querySelector('.country')
-    let tagline = document.querySelector('.tagline')
-    let director = document.querySelector('.director')
-    let the_script = document.querySelector('.the_script')
-    let producer = document.querySelector('.producer')
-    let operator = document.querySelector('.operator')
-    let composer = document.querySelector('.composer')
-    
+    actor_item.classList.add('actor_item')
+    actor_img.classList.add('actor_img')
+    actor_title_box.classList.add('actor_title_box')
+    actor_name.classList.add('actor_name')
+    actor_original_name.classList.add('actor_original_name')
+    actor_post.classList.add('actor_post')
+
+    actor_img.src = `https://api.themoviedb.org/3/person/${actor.id}/images/` + actor.profile_path
+    actor_name.innerHTML = actor.name
+    actor_original_name.innerHTML = actor.original_name
+    console.log(actor.profile_path);
+    }
 }
 
-reload_movie_info()
+/////////////////// GENRES_LIST_FOR_SELECT /////////////////////
+let genre_list = document.querySelectorAll('.title_genre ul li')
+let now_playing = document.querySelector('.now_playing')
+getData('/genre/movie/list')
+    .then((genres_res) => {
+        genres_res.data.genres.forEach(genres => {
+            genre_list.forEach(genre => {
+                if(genre.innerHTML.toLowerCase() === genres.name) {
+                    genre.setAttribute('id', genres.id)
+                }
+                genre.onclick = () => {
+                    getData(`/discover/movie?with_genres=${genre.id}`)
+                        .then((res) => {
+                            reload_movie(res.data.results, now_playing, genres_res.data.genres)
+                        })
+                }
+            })
+        })
+            })
+
+/////////////////// RELOAD_TRAILER /////////////////////
+export function reload_trailer (arr, place) {
+    for(let item of arr) {
+        let trailer_item = document.createElement('div')
+        let backdrop_img = document.createElement('div')
+        let trailer_name = document.createElement('p')
+
+        trailer_item.classList.add('trailer_item')
+        backdrop_img.classList.add('backdrop_img')
+        trailer_name.classList.add('trailer_name')
+
+        place.append(trailer_item)
+        trailer_item.append(backdrop_img, trailer_name)
+
+        backdrop_img.style = `background: url('https://image.tmdb.org/t/p/original${item.backdrop_path}')` 
+        trailer_name = item.title
+    }
+}
