@@ -1,0 +1,125 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Architects Daughter', cursive;
+  font-family: 'Ysabeau Infant', sans-serif;
+}
+
+body{
+  overflow: hidden;
+}
+
+main{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  .back_img{
+    width: 100%;
+    height: 100%;
+    background: url(/public/login_bg.jpg);
+    background-size: cover;
+    background-position: -500px 0;
+    position: absolute;
+    .gradient {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      position: relative;
+    }
+    .gradient:after {
+      content: "";
+      display: block;    
+      width: 100%;
+      height: 100%;    
+      position: absolute;
+      top: 0;      
+      left: 0;   
+      background: transparent;
+      background-image: linear-gradient(to left, black 30%, #0e79d600);
+    }
+  }
+  .container{
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+    .tablet{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      color: white;
+      background-color: rgba(25, 30, 46, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 200px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px 5px black;
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .title{
+          font-size: 40px;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 34px;
+        }
+        input{
+          background-color: #1E2538;
+          width: 420px;
+          height: 50px;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+          padding: 20px 26px;
+          font-size: 17px;
+          color: #FFFFFF99;
+        }
+        .checkbox_one{
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          .checkbox{
+            width: 17px;
+            height: 17px;
+            margin-right: 5px;
+          }            
+          label{
+            a{
+              color: rgb(242, 246, 15);
+            }
+          }
+        }
+        .checkbox_two{
+          display: flex;
+          justify-content: start;
+          align-items: center;
+          .checkbox{
+            width: 17px;
+            height: 17px;
+            margin-right: 5px;
+          }
+        }
+        button{
+          width: 420px;
+          height: 65px;
+          color: black;
+          font-weight: bold;
+          font-size: 17px;
+          background-color: rgb(242, 246, 15);
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+          opacity: 80%;
+        }
+        .yellow_btn:hover{
+          transition: .5s linear;
+          opacity: 100%;
+        }
+      }
+    }
+  }
+}

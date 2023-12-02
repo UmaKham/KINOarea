@@ -187,5 +187,8 @@ getData('/genre/movie/list?language=ru')
         reload_genres(genres, genre_list)
     })
 
-/////////////////// SWIPER_SLIDER /////////////////////
+let login_btn = document.querySelector('.login')
 
+login_btn.onclick = () => {
+    location.assign('/pages/login/')
+}

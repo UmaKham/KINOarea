@@ -137,7 +137,6 @@ export function reload_coming_soon(arr, place, genres) {
         item_name.innerHTML = movie.title
         item_genre.innerHTML = genre_titles.join(', ')
         
-        
     }
 }
 export function reload_box_office(arr, place) {
