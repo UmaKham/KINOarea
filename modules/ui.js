@@ -1,9 +1,5 @@
-import {
-    Logger
-} from 'sass'
-import {
-    getData
-} from './helpers'
+import Swiper from 'swiper'
+import { getData } from './helpers'
 
 export function reload_movie(arr, place, genres) {
     place.innerHTML = ''
@@ -37,6 +33,7 @@ export function reload_movie(arr, place, genres) {
         rating_box.append(rating)
 
         item_movie.classList.add('item_movie')
+        item_movie.classList.add('swiper-slide')
         poster_movie.classList.add('poster_movie')
         name_movie.classList.add('name_movie')
         genre_movie.classList.add('genre_movie')
@@ -70,6 +67,13 @@ export function reload_movie(arr, place, genres) {
             rating_box.style.backgroundColor = 'green'
         }
     }
+    function swiper() {
+        const swiper = new Swiper('.popular', {
+            slidesPerView: 5,
+            direction: 'horizontal',
+            
+        })
+    } swiper()
 }
 export function reload_actors(arr, place) {
     for (let actor of arr) {
@@ -93,10 +97,15 @@ export function reload_coming_soon(arr, place, genres) {
         let item_poster = document.createElement('img')
         let item_name = document.createElement('p')
         let item_genre = document.createElement('p')
+
+        let hover_bg = document.createElement('div')
+        let hover_bg_btn = document.createElement('button')
+        
         let genre_titles = []
 
         place.append(item_movie)
-        item_movie.append(item_poster, item_name, item_genre)
+        item_movie.append(item_poster, hover_bg, item_name, item_genre)
+        hover_bg.append(hover_bg_btn)
 
         for (let id of movie.genre_ids) {
             for (let genre of genres) {
@@ -107,13 +116,28 @@ export function reload_coming_soon(arr, place, genres) {
         }
 
         item_movie.classList.add('item_movie')
+        item_movie.classList.add('swiper-slide')
         item_poster.classList.add('poster_movie')
         item_name.classList.add('name_movie')
         item_genre.classList.add('genre_movie')
 
+        hover_bg.classList.add('hover_bg')
+        hover_bg_btn.classList.add('hover_bg_btn')
+
+        hover_bg_btn.innerHTML = 'Карточка фильма'
+
+        item_poster.onmousemove = () => {
+            hover_bg.style.display = 'flex'
+        }
+        hover_bg.onmouseleave = () => {
+            hover_bg.style.display = 'none'
+        }
+
         item_poster.src = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
         item_name.innerHTML = movie.title
         item_genre.innerHTML = genre_titles.join(', ')
+        
+        
     }
 }
 export function reload_box_office(arr, place) {
@@ -226,60 +250,72 @@ export function reload_search_actor(arr, place) {
 }
 
 /////////////////// GENRES_LIST_FOR_SELECT /////////////////////
+let genre_ids = []
+
 export function reload_genres(arr, place) {
     place.innerHTML = ""
-
+    
     for (let item of arr) {
         let li = document.createElement('li')
-
-        li.innerHTML = item.name
+        li.innerHTML = item.name[0].toUpperCase() + item.name.slice(1)
         li.id = item.id
-
+        
         place.append(li)
-
+        
+        
         li.onclick = () => {
             let now_playing = document.querySelector('.now_playing')
-
-            getData('/discover/movie?with_genres=' + item.id)
-                .then(res => reload_movie(res.data.results, now_playing, arr))
+            
+            if(li.classList.contains('active')) {
+                li.classList.remove('active')
+                let this_id = li.id
+                genre_ids = genre_ids.filter(item => {
+                    return item !== this_id
+                })
+                get(genre_ids)
+            } else {
+                li.classList.add('active')
+                genre_ids.push(li.id)
+                get(genre_ids)
+            }
+            if(genre_ids.length == 0) {
+            let movie_box = document.querySelector('.now_playing')
+                Promise.all([getData('/movie/now_playing?language=ru'), getData('/genre/movie/list?language=ru')])
+                    .then(([movies, genres]) => {
+                        reload_movie(movies.data.results.slice(0, 10), movie_box, genres.data.genres)
+                    });
+                    console.log('hi');
+            }
+            function get(ids) {
+                getData('/discover/movie?language=ru&with_genres=' + ids)
+                    .then(res => reload_movie(res.data.results.slice(0, 10), now_playing, arr))
+            }
         }
-    }
+    }    
 }
-
 /////////////////// RELOAD_TRAILER /////////////////////
-trailer(299536)
-
 export function reload_trailer(arr, place) {
     for (let item of arr) {
         let trailer_item = document.createElement('div')
         let backdrop_img = document.createElement('img')
         let trailer_name = document.createElement('p')
         let play = document.createElement('div')
-
+        
         trailer_item.classList.add('trailer_item')
         backdrop_img.classList.add('backdrop_img')
         trailer_name.classList.add('trailer_name')
         play.classList.add('play')
-
+        
         place.append(trailer_item)
         trailer_item.append(backdrop_img, trailer_name, play)
-
+        
         backdrop_img.src = `https://image.tmdb.org/t/p/original${item.backdrop_path}`
         trailer_name.innerHTML = item.title
-
+        
         play.onclick = () => {
             trailer(item.id);
         }
     }
-}
-
-export function trailer(id) {
-    let iframe = document.querySelector('.video iframe')
-    getData(`/movie/${id}/videos`)
-        .then((res) => {
-            let key = res.data.results[0].key;
-            iframe.src = `https://www.youtube.com/embed/${key}`
-        })
 }
 
 /////////////////// PERSON_LIST /////////////////////

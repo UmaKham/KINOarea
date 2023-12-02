@@ -14,12 +14,16 @@ import {
     reload_genres
 } from './modules/ui'
 
+import Swiper from "swiper"
+import 'swiper/css'
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 /////////////////// NOW-PLAYING ///////////////////
 let movie_box = document.querySelector('.now_playing')
 
-Promise.all([getData('/movie/now_playing'), getData('/genre/movie/list')])
+Promise.all([getData('/movie/now_playing?language=ru'), getData('/genre/movie/list?language=ru')])
     .then(([movies, genres]) => {
-        reload_movie(movies.data.results.slice(0, 8), movie_box, genres.data.genres)
+        reload_movie(movies.data.results.slice(0, 10), movie_box, genres.data.genres)
     });
 
 let now_playing_btn = document.querySelector('.new_movie_btn')
@@ -31,23 +35,39 @@ now_playing_btn.onclick = () => {
 /////////////////// POPULAR-MOVIE ///////////////////
 let popular_movie = document.querySelector('.popular_movie')
 
-Promise.all([getData('/movie/popular'), getData('/genre/movie/list')])
+Promise.all([getData('/movie/popular?language=ru'), getData('/genre/movie/list?language=ru')])
     .then(([movies, genres]) => {
-        reload_movie(movies.data.results.slice(0, 8), popular_movie, genres.data.genres)
+        reload_movie(movies.data.results, popular_movie, genres.data.genres)
     });
+/// FILTER_YEAR ///
+let year_btn = document.querySelectorAll('.title_popular ul li')
+
+year_btn.forEach(btn => {
+    let year = btn.innerHTML
+    btn.onclick = () => {
+        year_btn.forEach(btn_remove_active => {
+            btn_remove_active.classList.remove('active')
+        })
+        btn.classList.add('active')
+
+        Promise.all([getData(`/discover/movie?language=ru-RU&primary_release_year=` + year), getData('/genre/movie/list?language=ru')])
+    .then(([movies, genres]) => {
+        reload_movie(movies.data.results, popular_movie, genres.data.genres)
+    });
+    }
+})
 
 /////////////////// POPULAR-ACTORS ///////////////////
 let popular_person = document.querySelector('.popular_person')
 
-getData('/person/popular')
+getData('/person/popular?language=ru')
     .then(res => {
         reload_actors(res.data.results, popular_person)
-
     })
 
 let actors_ids = []
 
-getData('/person/popular')
+getData('/person/popular?language=ru')
     .then(res => {
         actors_ids.push(res.data.results[0].id, res.data.results[1].id)
     })
@@ -58,16 +78,16 @@ getData(`/person/3194176/images`)
 /////////////////// COMING-SOON ///////////////////
 let coming_soon = document.querySelector('.item_box')
 
-Promise.all([getData('/movie/upcoming'), getData('/genre/movie/list')])
+Promise.all([getData('/movie/upcoming?language=ru'), getData('/genre/movie/list?language=ru')])
     .then(([movies, genres]) => {
-        reload_coming_soon(movies.data.results.slice(0, 8), coming_soon, genres.data.genres)
+        reload_coming_soon(movies.data.results.slice(0, 10), coming_soon, genres.data.genres)
     });
 
 /////////////////// BOX-OFFICE ///////////////////
 
 let movie_list = document.querySelector('.movie_list')
 
-getData('/movie/popular')
+getData('/movie/popular?language=ru')
     .then(movies => {
         reload_box_office(movies.data.results.slice(0, 5), movie_list)
     });
@@ -116,6 +136,7 @@ btn_close.onclick = (e) => {
     if (e.target.getAttribute('data-close') !== null) {
         search_box.classList.remove('visible')
         search_input.value = ''
+        document.body.style.overflow = ''
     }
 }
 search_input.onfocus = () => {
@@ -128,12 +149,23 @@ search_input.onkeyup = () => {
 /////////////////// TRAILER_LIST_VIDEO ///////////////////
 let trailer_list_video = document.querySelector('.trailer_list_video')
 
-getData('/movie/top_rated')
+getData('/movie/top_rated?language=ru')
     .then((res) => {
         reload_trailer(res.data.results, trailer_list_video);
     })
 
+    trailer(299536)
 
+export function trailer(id) {
+    let iframe = document.querySelector('.video iframe')
+    let title_trailer = document.querySelector('.bottom_title h1')
+    getData(`/movie/${id}/videos?language=ru`)
+    .then((res) => {
+        let key = res.data.results[0].key;
+        iframe.src = `https://www.youtube.com/embed/${key}`
+        title_trailer.innerHTML = res.data.results[0].name
+    })
+}
 /////////////////// PERSON_LIST /////////////////////
 let person_box = document.querySelector('.person_box')
 let person_place_list = document.querySelector('.person_place_list')
@@ -145,16 +177,15 @@ getData('/person/popular')
     })
 
 
-// genres //
+/////////////////// RELOAD_GENRES /////////////////////
 let genre_list = document.querySelector('.title_genre ul')
 
-getData('/genre/movie/list')
+getData('/genre/movie/list?language=ru')
     .then((genres_res) => {
-        const {
-            data: {
-                genres
-            }
-        } = genres_res
+        const {data: { genres }} = genres_res
 
         reload_genres(genres, genre_list)
     })
+
+/////////////////// SWIPER_SLIDER /////////////////////
+
