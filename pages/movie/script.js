@@ -13,7 +13,6 @@ search_btn.onclick = () => {
     search_box.classList.add('visible')
     results_box.innerHTML = ''
     document.body.style.overflow = 'hidden'
-    console.log(search_box);
 }
 btn_close.onclick = (e) => {
     document.body.style.overflow = 'scroll'
@@ -27,17 +26,15 @@ search_input.onfocus = () => {
 }
 search_input.onkeyup = () => {
 
-    Promise.all([getData(`/search/movie?query=${search_input.value}&page=1`), getData('/genre/movie/list')])
+    Promise.all([getData(`/search/movie?query=${search_input.value}&page=1?language=ru`), getData('/genre/movie/list')])
         .then(([movies, genres]) => {
-            console.log(movies.data.results);
             reload_search_movie(movies.data.results, results_box, genres.data.genres)
         })
 }
 
 /////////////////// RELOAD_MOVIE_INFO ///////////////////
 
-export function movie_info_page(item, genres) {
-    console.log(item);
+export function movie_info_page(item, genres, job_arr, place) {
     
     document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
 
@@ -76,21 +73,84 @@ export function movie_info_page(item, genres) {
     document.querySelector('.imdb').innerHTML = item.vote_average.toFixed(2)
     
     document.querySelector('.about_movie').innerHTML = item.overview
-
+    
     document.querySelector('.year').innerHTML = item.release_date.slice(0, 4)
     document.querySelector('.country').innerHTML = item.production_countries[0].name
-    document.querySelector('.tagline').innerHTML = item.tagline
+    
+    let dir_img_one = document.querySelector('.item_box .item_one img')
+    let dir_img_two = document.querySelector('.item_box .item_two img')
+    let dir_name = document.querySelectorAll('.dir_name')
+    let dir_original_name = document.querySelectorAll('.dir_original_name')
+    let dir_post = document.querySelectorAll('.dir_post')
+    
+    let tagline = document.querySelector('.tagline')
+    tagline.innerHTML = item.tagline
+    if(item.tagline === '') {
+        tagline.innerHTML = '-'
+    }
+    
     let director = document.querySelector('.director')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Director') {
+            director.innerHTML = item.name
+            dir_img_one.src = `https://image.tmdb.org/t/p/original${item.profile_path}` 
+            dir_img_two.src = `https://image.tmdb.org/t/p/original${item.profile_path}`
+            for(let person of dir_name) {
+                person.innerHTML = item.name
+            }
+            for(let person of dir_original_name) {
+                person.innerHTML = item.original_name
+            }
+            for(let person of dir_post) {
+                person.innerHTML = item.job
+            }
+        }
+    }
     let the_script = document.querySelector('.the_script')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Screenplay') {
+            the_script.innerHTML = item.name
+        }
+    }
+    
     let producer = document.querySelector('.producer')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Producer') {
+            producer.innerHTML = item.name
+        }
+    }
+    
     let operator = document.querySelector('.operator')
-    let composer = document.querySelector('.composer')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Provider') {
+            operator.innerHTML = item.name
+        }
+    }
 
+    let composer = document.querySelector('.composer')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Original Music Composer') {
+            composer.innerHTML = item.name
+        }
+    }
+    
     let artist = document.querySelector('.artist')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Production Design') {
+            artist.innerHTML = item.name
+        }
+    }
+    
     let editor = document.querySelector('.editor')
+    for(let item of job_arr.crew) {
+        if(item.job === 'Editor') {
+            editor.innerHTML = item.name
+        }
+    }
+
     document.querySelector('.genres').innerHTML = genre_titles.join(', ')
     document.querySelector('.fees').innerHTML = `$${item.budget}`
-    let premier = document.querySelector('.premier')
+    document.querySelector('.premier').innerHTML = item.release_date
     let premier_rf = document.querySelector('.premier_rf')
     let age = document.querySelector('.age')
     if(item.adult == false) {
@@ -100,19 +160,50 @@ export function movie_info_page(item, genres) {
     }
     document.querySelector('.duration').innerHTML = item.runtime + ' / ' + ((item.runtime - 60) / 100 + 1) + ' мин'
 
-    let dir_img = document.querySelectorAll('.item_box img')
-    let dir_name = document.querySelectorAll('.dir_name')
-    let dir_original_name = document.querySelectorAll('.dir_original_name')
-    let dir_post = document.querySelectorAll('.dir_post')
 
     let production_name = document.querySelector('.production_name')
+    for(let name of item.production_companies) {
+        production_name.innerHTML += `${name.name}, <br> `
+    }
     let special_effects_name = document.querySelector('.special_effects_name')
     let dubbing_studio_name = document.querySelector('.special_effects_name')
-}
+    
+    place.innerHTML = ''
+    console.log(job_arr);
+    for(let item of job_arr.cast.splice(0, 8)) {
+        let actor_item = document.createElement('div')
+        let actor_img_box = document.createElement('div')
+        let actor_img = document.createElement('img')
+        let actor_name = document.createElement('span')
+        let actor_original_name = document.createElement('p')
+        let actor_name_legend = document.createElement('p')
 
+        place.append(actor_item)
+        actor_item.append(actor_img_box, actor_name, actor_original_name, actor_name_legend)
+        actor_img_box.append(actor_name, actor_original_name, actor_name_legend)
+
+        actor_item.classList.add('actor_item')
+        actor_img_box.classList.add('actor_img_box')
+        actor_img.classList.add('actor_img')
+        actor_name.classList.add('actor_name')
+        actor_original_name.classList.add('actor_original_name')
+        actor_name_legend.classList.add('actor_name_legend')
+
+
+        actor_item.style.background = `url(https://image.tmdb.org/t/p/original${item.profile_path}) no-repeat center / cover`
+        actor_name.innerHTML = item.name
+        actor_original_name.innerHTML = item.original_name
+        actor_name_legend.innerHTML = item.character
+        console.log(item);
+    }
+}
+let actor_box = document.querySelector('.actor_box')
 let id = location.search.split('=').at(-1)
 
-Promise.all([getData(`/movie/` + id), getData('/genre/movie/list')])
-    .then(([movie, genres]) => {
-        movie_info_page(movie.data, genres.data.genres)
+Promise.all([getData(`/movie/${id}?language=ru`), getData('/genre/movie/list?language=ru'), getData(`/movie/${id}/credits?job=Director&language=ru`)])
+    .then(([movie, genres, job]) => {
+        movie_info_page(movie.data, genres.data.genres, job.data, actor_box)
+        console.log(job.data);
     })
+
+/////////////////// RELOAD_MOVIE_INFO ///////////////////
