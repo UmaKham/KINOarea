@@ -5,6 +5,7 @@ export function reload_movie(arr, place, genres) {
     place.innerHTML = ''
     for (let item of arr) {
         let item_movie = document.createElement('div')
+        let poster_img = document.createElement('div')
         let poster_movie = document.createElement('img')
         let name_movie = document.createElement('span')
         let genre_movie = document.createElement('p')
@@ -28,12 +29,14 @@ export function reload_movie(arr, place, genres) {
             }
         }
         place.append(item_movie)
-        item_movie.append(poster_movie, hover_bg, name_movie, genre_movie, rating_box)
+        item_movie.append(poster_img, hover_bg, name_movie, genre_movie, rating_box)
+        poster_img.append(poster_movie)
         hover_bg.append(hover_bg_btn)
         rating_box.append(rating)
 
         item_movie.classList.add('item_movie')
         item_movie.classList.add('swiper-slide')
+        poster_img.classList.add('poster_img')
         poster_movie.classList.add('poster_movie')
         name_movie.classList.add('name_movie')
         genre_movie.classList.add('genre_movie')
@@ -94,6 +97,7 @@ export function reload_actors(arr, place) {
 export function reload_coming_soon(arr, place, genres) {
     for (let movie of arr) {
         let item_movie = document.createElement('div')
+        let poster_img = document.createElement('div')
         let item_poster = document.createElement('img')
         let item_name = document.createElement('p')
         let item_genre = document.createElement('p')
@@ -104,7 +108,8 @@ export function reload_coming_soon(arr, place, genres) {
         let genre_titles = []
 
         place.append(item_movie)
-        item_movie.append(item_poster, hover_bg, item_name, item_genre)
+        item_movie.append(poster_img, hover_bg, item_name, item_genre)
+        poster_img.append(item_poster)
         hover_bg.append(hover_bg_btn)
 
         for (let id of movie.genre_ids) {
@@ -117,6 +122,7 @@ export function reload_coming_soon(arr, place, genres) {
 
         item_movie.classList.add('item_movie')
         item_movie.classList.add('swiper-slide')
+        poster_img.classList.add('poster_img')
         item_poster.classList.add('poster_movie')
         item_name.classList.add('name_movie')
         item_genre.classList.add('genre_movie')

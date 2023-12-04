@@ -1,0 +1,323 @@
+@media screen and (max-width: 1200px) {
+    main {
+        section {
+            .now_playing {
+                .item_movie {
+                    .poster_movie {
+                        height: 290px !important;
+                    }
+                }
+            }
+        }
+    }
+    section {
+        .container {
+            .popular{
+                .title_popular {
+                    h1 {
+                    }
+                    ul {
+                        li {
+                        }
+                        :hover {
+                        }
+                        .active {
+                        }
+                    }
+                }
+            }
+            .popular_movie{
+                .item_movie{
+                    .poster_movie {
+                    }
+                    .hover_bg {
+                        .hover_bg_btn {
+                        }
+                        .hover_bg_btn:hover{
+                        }
+                    }
+                    .name_movie {
+                    }
+                    .genre_movie {
+                    }
+                    .rating_box {
+                        .rating {
+                        }
+                    }
+                }
+            }
+            .slider {
+                p {
+                }
+                button {
+                    img {
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 980px) {
+    main {
+        .container {
+            padding: 20px;
+            header {
+                nav {
+                    .list_genre {
+                        justify-content: center;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+        section {
+            .now_playing {
+                gap: 20px;
+                .item_movie {
+                    height: 350px;
+                    .poster_movie {
+                        height: 230px;
+                    }
+                    .hover_bg {
+                        @keyframes hover {
+                            from { opacity: 0%;}
+                            to { opacity: 100%;}
+                        }
+                    }
+                    .rating_box {
+                        width: 40px;
+                        height: 25px;
+                        .rating {
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section {
+        .container {
+            padding: 20px;
+            .trailer_box {
+                .video {
+                    iframe {
+                    }
+                    .trailer_list_video {
+                        padding: 20px;
+                        .trailer_item {
+                            .backdrop_img{
+                            }                    
+                            .play{
+                            }
+                            .trailer_name {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+                .title_box {
+                    gap: 50px;
+                }
+            }
+        }
+    }
+    section {
+        .container {
+            padding: 20px;
+            .popular_movie{
+                height: 300px;
+                .item_movie{
+                    .poster_movie {
+                        height: 200px;
+                    }
+                    .rating_box {
+                        width: 50px;
+                        height: 30px;
+                        .rating {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    section {
+        .container {
+            padding: 20px;
+            .person_box {
+                gap: 20px;
+                height: fit-content;
+                .item_person {
+                    height: 350px;
+                    .title{
+                        padding: 20px;
+                        .name {
+                            font-size: 25px;
+                        }
+                        .original_name {
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .person_place_list {
+                    height: 350px;
+                    padding: 20px;
+                    .list_item{
+                        .list_left {
+                            .list_name {
+                                font-size: 25px;
+                            }
+                            .original_name {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        .container {
+            padding: 20px;
+            .coming_soon {
+                .title {
+                    h1 {
+                        font-size: 40px;
+                    }
+                }
+                .item_box {
+                    gap: 20px;
+                    .item_movie {
+                        .poster_movie {
+                            width: 164px;
+                            height: 230px;
+                        }
+                    }
+                }
+            }
+            .box_office {
+                .title {
+                    padding-top: 30px;
+                    .left {
+                        align-items: center;
+                        h1 {
+                            font-size: 40px;
+                        }
+                        p {
+                            padding: 0;
+                        }
+                    }
+                    .right {
+                        ul {
+                            gap: 15px;
+                        }
+                    }
+                }
+                .movie_list {
+                    margin-bottom: 100px;
+                    .item_movie {
+                        flex-direction: column;
+                        img {
+                        }
+                        .movie_info {
+                            p {
+                                width: 150px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        .container {
+            header {
+                .left{
+                    .burger_menu {
+                        img {
+                        };
+                    }
+                    .hide{
+                        display: none;
+                    }
+                    .view{
+                        display: flex;
+                    }
+                    .logo {
+                        .logotype {
+                        }
+                        .social {
+                            img {
+                            }
+                            img:hover {
+                            }
+                        }
+                    }
+                }
+                nav {
+                    .nav {
+                        justify-content: start;
+                        gap: 20px;
+                        padding-left: 50px;
+                        li {
+                        }
+                        li:hover {
+                        }
+                    }
+                }
+            .header_btns {
+                .search{
+                }
+                .search:hover{
+                }
+                .login {
+                }
+                .login:hover {
+                }
+            }
+            }
+        }
+    
+        section {
+            .container {
+                .title_genre {
+                    h1 {
+                    }
+                    .genre {
+                        ul {
+                            li {
+                            }
+                            .active {
+                            }
+                        }
+                        ::-webkit-scrollbar {
+                        }
+                    }
+                }
+            }
+            .now_playing {
+                .item_movie {
+                    .poster_movie {
+                    }
+                    .hover_bg {
+                        .hover_bg_btn {
+                        }
+                        .hover_bg_btn:hover{
+                        }
+                    }
+                    .name_movie {
+                    }
+                    .genre_movie {
+                    }
+                    .rating_box {
+                        .rating {
+                        }
+                    }
+                }
+            }
+        }
+    }
+} 
