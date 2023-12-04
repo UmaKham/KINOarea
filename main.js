@@ -192,3 +192,19 @@ let login_btn = document.querySelector('.login')
 login_btn.onclick = () => {
     location.assign('/pages/login/')
 }
+
+/////////////////// BURGER_MENU /////////////////////
+let menu_btn = document.querySelector('.burger_menu')
+let list_genre = document.querySelector('.list_genre')
+let logo = document.querySelector('.logo')
+
+menu_btn.onclick = () => {
+    if(list_genre.classList.contains('hide')) {
+        list_genre.classList.remove('hide')
+        logo.classList.add('hide')
+    } else {
+        list_genre.classList.add('hide')
+        logo.classList.remove('hide')
+    }
+    
+}
