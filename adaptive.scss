@@ -2,9 +2,44 @@
     main {
         section {
             .now_playing {
+                min-height: 700px !important;
+                grid-template-rows: repeat(2, 365px);
+                gap: 20px;
                 .item_movie {
-                    .poster_movie {
-                        height: 290px !important;
+                    position: relative;
+                    .poster_img{
+                        height: fit-content;
+                        .poster_movie {
+                            height: 310px !important;
+                        }
+                    }
+                    .hover_bg {
+                        max-height: 310px;
+                        .hover_bg_btn {
+                            font-size: 15px;
+                        }
+                        .hover_bg_btn:hover{
+                        }
+                    }
+                    .rating_box {
+                        width: 40px;
+                        height: 25px;
+                    }
+                }                
+            }
+        }
+    }
+    section {
+        .container {
+            .popular_movie{
+                min-height: 360px;
+                .item_movie{
+                    height: 85%;
+                    .rating_box {
+                        width: 40px !important;
+                        height: 25px !important;
+                        .rating {
+                        }
                     }
                 }
             }
@@ -12,45 +47,123 @@
     }
     section {
         .container {
-            .popular{
-                .title_popular {
-                    h1 {
+            .trailer_box {
+                .video {
+                    .trailer_list_video {
+                        padding: 20px;
+                        .trailer_item {
+                            .trailer_name {
+                                font-size: 20px;
+                            }
+                        }
                     }
+                }
+            }
+        }
+    }
+    footer {
+        .container {
+            .coming_soon {
+                .item_box {
+                    grid-template-rows: repeat(2, 400px);
+                    gap: 20px;
+                    .item_movie {
+                        .poster_img{
+                            .poster_movie {
+                                width: 100%;
+                                height: 310px;
+                            }
+                        }
+                        .hover_bg {
+                            height: 310px;
+                            .hover_bg_btn {
+                                font-size: 15px;
+                            }
+                            .hover_bg_btn:hover{
+                        }
+                        }
+                        .name_movie {
+                        }
+                        .genre_movie {
+                        }
+                    }
+                }
+            }
+            .box_office {
+                .title {
+                    .left {
+                        h1 {
+                        }
+                        p {
+                        }
+                    }
+                    .right {
+                        ul {
+                            li {
+                            }
+                            .active {
+                            }
+                            :hover {
+                            }
+                        }
+                    }
+                }
+                .movie_list {
+                    .item_movie {
+                        img {
+                        }
+                        .movie_info {
+                            p {
+                            }
+                        }
+                    }
+                }
+                .blue_background {
+                    .subscription {
+                        .logo {
+                        }
+                        .sub_title {
+                            span {
+                            }
+                            p {
+                            }
+                            form {
+                                input {
+                                }
+                                button {
+                                }
+                                button:hover {
+                                }
+                            }
+                            .checkbox {
+                                label {
+                                    a {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .blue_background::before {
+                }
+                .socials {
+                    img {
+                    }
+                    img:hover {
+                    }
+                }
+                nav {
                     ul {
                         li {
                         }
-                        :hover {
-                        }
-                        .active {
+                        li:hover {
                         }
                     }
                 }
-            }
-            .popular_movie{
-                .item_movie{
-                    .poster_movie {
+                .footer {
+                    p {
                     }
-                    .hover_bg {
-                        .hover_bg_btn {
-                        }
-                        .hover_bg_btn:hover{
-                        }
-                    }
-                    .name_movie {
-                    }
-                    .genre_movie {
-                    }
-                    .rating_box {
-                        .rating {
-                        }
-                    }
-                }
-            }
-            .slider {
-                p {
-                }
-                button {
-                    img {
+                    a {
                     }
                 }
             }
@@ -58,40 +171,63 @@
     }
 }
 
-@media screen and (min-width: 980px) {
+@media screen and (max-width: 980px) {
     main {
         .container {
+            max-width: 980px;
             padding: 20px;
             header {
+                padding: 0;
+                justify-content: space-between;
+                .logo {
+                    .logotype {
+                    }
+                    .social {
+                        img {
+                        }
+                        img:hover {
+                        }
+                    }
+                }
                 nav {
-                    .list_genre {
+                    ul {
+                        min-width: 600px !important;
                         justify-content: center;
                         gap: 20px;
+                        li {
+                        }
+                        li:hover {
+                        }
                     }
                 }
             }
         }
         section {
             .now_playing {
+                min-height: 700px !important;
+                grid-template-rows: repeat(2, 365px);
                 gap: 20px;
                 .item_movie {
-                    height: 350px;
-                    .poster_movie {
-                        height: 230px;
-                    }
-                    .hover_bg {
-                        @keyframes hover {
-                            from { opacity: 0%;}
-                            to { opacity: 100%;}
+                    height: 260px;
+                    position: relative;
+                    .poster_img{
+                        height: 260px;
+                        .poster_movie {
+                            height: 260px !important;
                         }
                     }
                     .rating_box {
                         width: 40px;
                         height: 25px;
-                        .rating {
+                    }
+                    .hover_bg {
+                        height: 260px;
+                        .hover_bg_btn {
+                            padding: 10px 20px;
+                            font-size: 15px;
                         }
                     }
-                }
+                }                
             }
         }
     }
@@ -186,11 +322,23 @@
                     }
                 }
                 .item_box {
+                    min-height: 400px;
+                    grid-template-rows: repeat(2, 365px);
                     gap: 20px;
                     .item_movie {
-                        .poster_movie {
-                            width: 164px;
-                            height: 230px;
+                        .poster_img{
+                            height: 260px;
+                            .poster_movie {
+                                width: 100%;
+                                height: 260px;
+                            }
+                        }
+                        .hover_bg{
+                            height: 260px;
+                            .hover_bg_btn{
+                                padding: 10px 20px;
+                                font-size: 15px;
+                            }
                         }
                     }
                 }
