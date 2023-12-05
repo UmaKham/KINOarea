@@ -34,7 +34,7 @@ search_input.onkeyup = () => {
 
 /////////////////// RELOAD_MOVIE_INFO ///////////////////
 
-export function movie_info_page(item, genres, job_arr, place) {
+export function movie_info_page(item, genres, job_arr, place, video, stills) {
     
     document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
 
@@ -169,8 +169,7 @@ export function movie_info_page(item, genres, job_arr, place) {
     let dubbing_studio_name = document.querySelector('.special_effects_name')
     
     place.innerHTML = ''
-    console.log(job_arr);
-    for(let item of job_arr.cast.splice(0, 8)) {
+    for(let item of job_arr.cast.splice(0, 10)) {
         let actor_item = document.createElement('div')
         let actor_img_box = document.createElement('div')
         let actor_img = document.createElement('img')
@@ -194,16 +193,36 @@ export function movie_info_page(item, genres, job_arr, place) {
         actor_name.innerHTML = item.name
         actor_original_name.innerHTML = item.original_name
         actor_name_legend.innerHTML = item.character
-        console.log(item);
+
+        let iframe = document.querySelector('iframe')
+        
+        iframe.src = `https://www.youtube.com/embed/${video[3].key}`
+
+        let poster_box = document.querySelector('.poster_box')
+        poster_box.innerHTML = ''
+        for(let item of stills.posters.splice(0, 8)) {
+            let img = document.createElement('img')
+            poster_box.append(img)
+            img.src = `https://image.tmdb.org/t/p/original${item.file_path}`
+        }
     }
 }
 let actor_box = document.querySelector('.actor_box')
 let id = location.search.split('=').at(-1)
 
-Promise.all([getData(`/movie/${id}?language=ru`), getData('/genre/movie/list?language=ru'), getData(`/movie/${id}/credits?job=Director&language=ru`)])
-    .then(([movie, genres, job]) => {
-        movie_info_page(movie.data, genres.data.genres, job.data, actor_box)
-        console.log(job.data);
+Promise.all([   getData(`/movie/${id}?language=ru`), 
+                getData('/genre/movie/list?language=ru'), 
+                getData(`/movie/${id}/credits?language=ru`),
+                getData(`/movie/${id}/videos`),
+                getData(`/movie/${id}/images`)])
+    .then(([movie, genres, job, video, stills]) => {
+        movie_info_page(movie.data, genres.data.genres, job.data, actor_box, video.data.results, stills.data)
+        console.log(movie.data);
     })
 
 /////////////////// RELOAD_MOVIE_INFO ///////////////////
+
+getData(`/collection/623911/images`)
+    .then((res) => {
+        console.log(res);
+    })

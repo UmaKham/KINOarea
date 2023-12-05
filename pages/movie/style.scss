@@ -488,21 +488,24 @@ section{
             }
             .actor_box{
                 padding: 20px 0;
-                display: flex;
-                align-items: start;
-                flex-wrap: wrap;
-                gap: 30px;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 40px;
                 .actor_item{
-                    width: 339px;
-                    height: 550px;
+                    margin: 0 auto;
+                    width: 330px;
+                    height: 330px;
                     position: relative;
+                    opacity: 80%;
                     .actor_img_box{
                         height: 100%;
-                        background: linear-gradient(0deg, black 1%, rgba(255, 255, 255, 0) 75%);
+                        // background: linear-gradient(0deg, black 5%, rgba(255, 255, 255, 0) 75%);
                         padding: 20px;
                         display: flex;
                         flex-direction: column;
                         justify-content: end;
+                        opacity: 90%;
                         .actor_img{
                         }
                     }
@@ -522,6 +525,11 @@ section{
                     font-size: 16px;
                     }
                 }
+                
+                .actor_item:hover{
+                    opacity: 100%;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -531,6 +539,9 @@ section{
     max-width: 1920px;
     width: 100%;
     padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
         nav{
             margin-top: 41px;
             ul{
@@ -579,6 +590,13 @@ section{
                     width: 35px;
                     }
                 }
+        }
+        .iframe_box{
+            iframe{
+                margin: 40px 0;
+                width: 100%;
+                height: calc((1920px / 16) * 9);
+            }
         }
         .iframe_desc {
         display: flex;
@@ -675,14 +693,27 @@ section{
                 margin: 30px 0;
                 }
                 .poster_box{
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: repeat(2, 510px);
+                    gap: 25px;
                     img{
+                    width: 100%;
                     border-radius: 10px;
+                    box-shadow: 0 0 15px black;
                     }
                 }
             }
         }
         .stills{
             .still{
+                .stills_box{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    img{
+                        width: 500px;
+                    }
+                }
                 .movie_name{
                 color: white;
                 font-size: 25px;
