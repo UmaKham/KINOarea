@@ -34,10 +34,28 @@ search_input.onkeyup = () => {
 
 /////////////////// RELOAD_MOVIE_INFO ///////////////////
 
-export function movie_info_page(item, genres, job_arr, place, video, stills) {
-    
-    document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
+export function movie_info_page(item, genres, job_arr, place, video, images) {
 
+/////////////////// BACKDROP_MOVIE ///////////////////
+let footage = document.querySelector('.footage_box')
+for(let item of images.backdrops.slice(0, 12)) {
+    let img = document.createElement('img')
+    footage.append(img)
+    img.src = `https://image.tmdb.org/t/p/original/${item.file_path}`
+}
+
+/////////////////// POSTER_MOVIE ///////////////////
+let poster_box = document.querySelector('.poster_box')
+for(let item of images.posters.splice(0, 5)) {
+    let img = document.createElement('img')
+    poster_box.append(img)
+    img.src = `https://image.tmdb.org/t/p/original${item.file_path}`
+}
+
+
+
+
+document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
     document.querySelector('.movie_poster').src = 'https://image.tmdb.org/t/p/original/' + item.poster_path
     
     let movie_name = document.querySelectorAll('.movie_name')
@@ -198,13 +216,6 @@ export function movie_info_page(item, genres, job_arr, place, video, stills) {
         
         iframe.src = `https://www.youtube.com/embed/${video[3].key}`
 
-        let poster_box = document.querySelector('.poster_box')
-        poster_box.innerHTML = ''
-        for(let item of stills.posters.splice(0, 8)) {
-            let img = document.createElement('img')
-            poster_box.append(img)
-            img.src = `https://image.tmdb.org/t/p/original${item.file_path}`
-        }
     }
 }
 let actor_box = document.querySelector('.actor_box')
@@ -215,14 +226,12 @@ Promise.all([   getData(`/movie/${id}?language=ru`),
                 getData(`/movie/${id}/credits?language=ru`),
                 getData(`/movie/${id}/videos`),
                 getData(`/movie/${id}/images`)])
-    .then(([movie, genres, job, video, stills]) => {
-        movie_info_page(movie.data, genres.data.genres, job.data, actor_box, video.data.results, stills.data)
-        console.log(movie.data);
+    .then(([movie, genres, job, video, images]) => {
+        movie_info_page(movie.data, genres.data.genres, job.data, actor_box, video.data.results, images.data)
     })
 
 /////////////////// RELOAD_MOVIE_INFO ///////////////////
 
-getData(`/collection/623911/images`)
+getData(`/movie/609681/images`)
     .then((res) => {
-        console.log(res);
     })
