@@ -1,5 +1,5 @@
 import { getData } from '../../modules/helpers'
-import { reload_search_movie } from '../../modules/ui'
+import { reload_search_movie, reload_movie } from '../../modules/ui'
 
 /////////////////// SEARCH_MOVIE ///////////////////
 
@@ -38,10 +38,10 @@ export function movie_info_page(item, genres, job_arr, place, video, images) {
 
 /////////////////// BACKDROP_MOVIE ///////////////////
 let footage = document.querySelector('.footage_box')
-for(let item of images.backdrops.slice(0, 12)) {
-    let img = document.createElement('img')
+for(let item of images.backdrops.slice(0, 6)) {
+    let img = document.createElement('div')
     footage.append(img)
-    img.src = `https://image.tmdb.org/t/p/original/${item.file_path}`
+    img.style.background = `url(https://image.tmdb.org/t/p/original/${item.file_path}) no-repeat center / cover`
 }
 
 /////////////////// POSTER_MOVIE ///////////////////
@@ -53,9 +53,17 @@ for(let item of images.posters.splice(0, 5)) {
 }
 
 
+/////////////////// SIMILAR_MOVIE ///////////////////
+let similar_box = document.querySelector('.similar_box')
+getData(`/movie/${item.id}/similar?language=ru`)
+.then(res => {
+    reload_movie(res.data.results.splice(3, 5), similar_box, genres)
+})
 
 
-document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path
+let background_image = document.querySelector('.background_image')
+console.log(background_image);
+background_image.style.background = `linear-gradient(to top, #1E2538 0%, transparent 100%), url(https://image.tmdb.org/t/p/original/${item.backdrop_path}) no-repeat center / cover`
     document.querySelector('.movie_poster').src = 'https://image.tmdb.org/t/p/original/' + item.poster_path
     
     let movie_name = document.querySelectorAll('.movie_name')
@@ -212,9 +220,9 @@ document.querySelector('.background_image').src = 'https://image.tmdb.org/t/p/or
         actor_original_name.innerHTML = item.original_name
         actor_name_legend.innerHTML = item.character
 
+        let finded_trailer = video.find(video => video.type === 'Trailer')
         let iframe = document.querySelector('iframe')
-        
-        iframe.src = `https://www.youtube.com/embed/${video[3].key}`
+        iframe.src = `https://www.youtube.com/embed/${finded_trailer.key}`
 
     }
 }

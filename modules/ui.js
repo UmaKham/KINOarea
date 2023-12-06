@@ -29,8 +29,8 @@ export function reload_movie(arr, place, genres) {
             }
         }
         place.append(item_movie)
-        item_movie.append(poster_img, hover_bg, name_movie, genre_movie, rating_box)
-        poster_img.append(poster_movie)
+        item_movie.append(poster_img, name_movie, genre_movie, rating_box)
+        poster_img.append(poster_movie, hover_bg)
         hover_bg.append(hover_bg_btn)
         rating_box.append(rating)
 
@@ -108,8 +108,8 @@ export function reload_coming_soon(arr, place, genres) {
         let genre_titles = []
 
         place.append(item_movie)
-        item_movie.append(poster_img, hover_bg, item_name, item_genre)
-        poster_img.append(item_poster)
+        item_movie.append(poster_img, item_name, item_genre)
+        poster_img.append(item_poster, hover_bg)
         hover_bg.append(hover_bg_btn)
 
         for (let id of movie.genre_ids) {
@@ -121,7 +121,6 @@ export function reload_coming_soon(arr, place, genres) {
         }
 
         item_movie.classList.add('item_movie')
-        item_movie.classList.add('swiper-slide')
         poster_img.classList.add('poster_img')
         item_poster.classList.add('poster_movie')
         item_name.classList.add('name_movie')
@@ -345,6 +344,11 @@ export function reload_person(arr, place) {
         item.style.background = `url(https://image.tmdb.org/t/p/original${person.profile_path}) no-repeat center / cover`
         name.innerHTML = person.name
         original_name.innerHTML = person.original_name
+
+        console.log(item);
+        item.onclick = () => {
+            location.assign(`http://localhost:5173/pages/person/?id=${person.id}`)
+        }
     }
 }
 export function reload_person_list(arr, place) {

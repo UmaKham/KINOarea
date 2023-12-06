@@ -28,11 +28,30 @@ main {
             align-items: center;
             justify-content: space-between;
             padding: 10px 0;
+            .menu{
+                display: flex;
+                gap: 15px;
+                align-items: center;
+                .burger_menu{
+                    background-color: rgba(255, 255, 255, .2);
+                    padding: 5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    img{
+                    }
+                }
+                .hide{
+                    display: none;
+                }
+            }
 
             .logo {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 5px;
                 cursor: pointer;
 
                 .logotype {
@@ -65,9 +84,10 @@ main {
                     display: flex;
                     justify-content: space-between;
                     flex-direction: row;
+                    gap: 3%;
 
                     li {
-                        font-size: 17px;
+                        font-size: 1.6vw;
                         list-style: none;
                         text-decoration: none;
                         color: white;
@@ -129,32 +149,33 @@ main {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: end;
                 min-width: 0;
                 gap: 20px;
 
                 h1 {
-                    width: 20%;
+                    font-size: 3.5vw;
                     color: white;
                 }
 
                 .genre {
-                    width: 80%;
+                    width: 60%;
                     overflow: hidden;
-                    
                     ul {
                         overflow-x: scroll;
                         color: white;
                         list-style: none;
                         display: flex;
                         gap: 22px;
+                        padding-bottom: 10px;
 
                         li {
-                            height: 25px;
+                            font-size: 1.6vw;
                             text-align: center;
                             font-weight: bold;
                             cursor: pointer;
                             opacity: 70%;
+                            white-space: nowrap;
                         }
 
                         .active {
@@ -177,17 +198,15 @@ main {
             padding: 50px 0;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(2, 600px);
-            gap: 40px;
-            min-height: 1100px;
-
+            grid-template-rows: repeat(2, 50%);
+            gap: 1%;
             .item_movie {
                 width: 100%;
-                min-height: 100%;
+                max-height: 100%;
                 .poster_img{
                     position: relative;
                     width: 100%;
-                    height: 85%;
+                    max-height: 100%;
                     .poster_movie {
                         width: 100%;
                         height: 100%;
@@ -204,7 +223,7 @@ main {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    bottom: 15%;
+                    bottom: 0;
                     left: 0;
                     border-radius: 15px;
                     box-shadow: inset 0 0 50px black;
@@ -254,8 +273,7 @@ main {
                 }
 
                 .rating_box {
-                    width: 65px;
-                    height: 35px;
+                    padding: 2%;
                     border-radius: 5px;
                     background-color: rgb(137, 203, 54);
                     display: flex;
@@ -518,55 +536,52 @@ section {
                     height: 100%;
                     position: relative;
                     .poster_movie {
-                        display: block;
                         width: 100%;
                         min-height: 100%;
                         border-radius: 15px;
                         box-shadow: 0 0 15px black;
                         cursor: pointer;
                     }
-                }
-
-                .hover_bg {
-                    background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
-                    padding-top: 115%;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 7%;
-                    left: 0;
-                    border-radius: 15px;
-                    box-shadow: inset 0 0 50px black;
-                    justify-content: center;
-                    align-items: end;
-                    display: none;
-                    animation: hover .5s linear forwards;
-
-                    @keyframes hover {
-                        from {
-                            opacity: 0%;
+                    .hover_bg {
+                        background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        border-radius: 15px;
+                        box-shadow: inset 0 0 50px black;
+                        justify-content: center;
+                        align-items: end;
+                        display: none;
+                        animation: hover .5s linear forwards;
+    
+                        @keyframes hover {
+                            from {
+                                opacity: 0%;
+                            }
+    
+                            to {
+                                opacity: 100%;
+                            }
                         }
-
-                        to {
-                            opacity: 100%;
+    
+                        .hover_bg_btn {
+                        background-color: #131e48;
+                        box-shadow: 0 0 15px black;
+                        border-radius: 5px;
+                        border: none;
+                        color: white;
+                        font-size: 20px;
+                        font-weight: bold;
+                        padding: 0 30px;
+                        height: 40px;
+                        cursor: pointer;
+                        margin-bottom: 30px;
                         }
-                    }
-
-                    .hover_bg_btn {
-                    background-color: #131e48;
-                    box-shadow: 0 0 15px black;
-                    border-radius: 5px;
-                    border: none;
-                    color: white;
-                    font-size: 20px;
-                    font-weight: bold;
-                    padding: 0 30px;
-                    height: 40px;
-                    cursor: pointer;
-                    margin-bottom: 30px;
-                    }
-                    .hover_bg_btn:hover{
-                        background-color: #1a2a68;
+                        .hover_bg_btn:hover{
+                            background-color: #1a2a68;
+                        }
                     }
                 }
 
@@ -783,64 +798,66 @@ footer {
             }
 
             .item_box {
-                min-height: 900px;
                 padding-top: 50px;
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
                 grid-template-rows: repeat(2, 550px);
                 gap: 40px;
                 .item_movie {
+                    width: 100%;
+                    height: 100%;
                     .poster_img{
                         width: 100%;
+                        height: 88%;
                         position: relative;
                         .poster_movie {
-                            max-width: 100%;
-                            min-height: 100%;
+                            width: 100%;
+                            height: 100%;
                             border-radius: 15px;
                             box-shadow: 0 0 15px black;
                             cursor: pointer;
                         }
-                    }
-                    .hover_bg {
-                        background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
-                        position: absolute;
-                        top: 0;
-                        right: 0;
-                        bottom: 8%;
-                        left: 0;
-                        border-radius: 15px;
-                        box-shadow: inset 0 0 50px black;
-                        justify-content: center;
-                        align-items: end;
-                        display: none;
-                        animation: hover .5s linear forwards;
-
-                        @keyframes hover {
-                            from {
-                                opacity: 0%;
+                        .hover_bg {
+                            background: linear-gradient(45deg, rgba(54, 87, 203, 0.651), rgba(54, 86, 203, 0), rgba(54, 87, 203, 0.651));
+                            border-radius: 15px;
+                            box-shadow: inset 0 0 50px black;
+                            justify-content: center;
+                            align-items: end;
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            animation: hover .5s linear forwards;
+        
+                            @keyframes hover {
+                                from {
+                                    opacity: 0%;
+                                }
+        
+                                to {
+                                    opacity: 100%;
+                                }
                             }
-
-                            to {
-                                opacity: 100%;
+        
+                            .hover_bg_btn {
+                            background-color: #131e48;
+                            box-shadow: 0 0 15px black;
+                            border-radius: 5px;
+                            border: none;
+                            color: white;
+                            font-size: 20px;
+                            font-weight: bold;
+                            padding: 0 30px;
+                            height: 40px;
+                            cursor: pointer;
+                            margin-bottom: 30px;
                             }
+                            .hover_bg_btn:hover{
+                                background-color: #1a2a68;
                         }
-
-                        .hover_bg_btn {
-                        background-color: #131e48;
-                        box-shadow: 0 0 15px black;
-                        border-radius: 5px;
-                        border: none;
-                        color: white;
-                        font-size: 20px;
-                        font-weight: bold;
-                        padding: 0 30px;
-                        height: 40px;
-                        cursor: pointer;
-                        margin-bottom: 30px;
                         }
-                        .hover_bg_btn:hover{
-                            background-color: #1a2a68;
-                    }
                     }
 
                     .name_movie {
