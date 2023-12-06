@@ -237,9 +237,3 @@ Promise.all([   getData(`/movie/${id}?language=ru`),
     .then(([movie, genres, job, video, images]) => {
         movie_info_page(movie.data, genres.data.genres, job.data, actor_box, video.data.results, images.data)
     })
-
-/////////////////// RELOAD_MOVIE_INFO ///////////////////
-
-getData(`/movie/609681/images`)
-    .then((res) => {
-    })
