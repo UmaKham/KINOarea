@@ -208,3 +208,7 @@ menu_btn.onclick = () => {
     }
     
 }
+
+document.querySelector('.actors_page').onclick = () => {
+    location.assign('/pages/person/')
+}

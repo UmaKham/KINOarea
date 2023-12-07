@@ -370,5 +370,9 @@ export function reload_person_list(arr, place) {
 
         list_name.innerHTML = person.name
         list_original_name.innerHTML = person.original_name
+
+        list_item.onclick = () => {
+            location.assign(`http://localhost:5173/pages/person/?id=${person.id}`)
+        }
     }
 }

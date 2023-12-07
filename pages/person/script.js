@@ -1,5 +1,5 @@
 import { getData } from '../../modules/helpers'
-import { reload_movie } from '../../modules/ui'
+import { reload_movie, reload_person } from '../../modules/ui'
 
 let person_id = location.search.split('=').at(-1)
 let best_movie_box = document.querySelector('.best_movie_box')
@@ -36,3 +36,10 @@ for(let item of photo.slice(0, 6)) {
 
 }
 }
+
+let person_box = document.querySelector('.person_box')
+
+getData('/person/popular?language=ru')
+    .then(res => {
+        reload_person(res.data.results, person_box);
+    })

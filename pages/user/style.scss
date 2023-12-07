@@ -608,6 +608,7 @@ section{
                 align-items: center;
                 gap: 20px;
                 li{
+                  font-size: 15px;
                   list-style: none;
                   cursor: pointer;
                 }
@@ -617,6 +618,25 @@ section{
                 border: none;
                 margin-right: 10px;
                 cursor: pointer;
+              }
+            }
+          }
+          .friend_box{
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            .friend_item{
+              display: flex;
+              flex-direction: column;
+              img{
+              }
+              .name{
+                font-size: 24px;
+                font-weight: bold;
+              }
+              .status{
+                font-size: 20px;
+                color: gold;
               }
             }
           }
