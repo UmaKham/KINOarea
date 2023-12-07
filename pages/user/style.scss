@@ -137,12 +137,11 @@ section{
       gap: 1%;
       .sidebar{
         ul{
-          height: 100%;
           display: flex;
           justify-content: space-between;
           align-items: center;
           flex-direction: column;
-          gap: 7px;
+          gap: 15px;
           li{
             padding: 20px;
             border-radius: 10px;
@@ -325,13 +324,300 @@ section{
               opacity: 100%;
             }
           }
-          .img_social{
-            .img{
-              width: 400px;
-              height: 400px;
-              background: url('/public/user/deadpool.jpeg') no-repeat center / cover;
-              background-position: -180px 0;
-              border-radius: 15px;
+          .img_social_info{
+            display: flex;
+            gap: 40px;
+            .img_social{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+              .img{
+                width: 400px;
+                height: 400px;
+                background: url('/public/user/deadpool.jpeg') no-repeat center / cover;
+                background-position: -180px 0;
+                border-radius: 15px;
+              }
+              .img_text_btn{
+                margin: 20px 0;
+                display: flex;
+                justify-content: space-between;
+                width: 400px;
+                border-radius: 10px;
+                background: #1E2538;
+                .img_text{
+                  display: flex;
+                  align-items: center;
+                  padding: 0 10px;
+                  p{
+                    color: rgba(255, 255, 255, 0.5);
+                    font-size: 20px;
+                  }
+                }
+                button{
+                  padding: 10px 30px;
+                  font-size: 20px;
+                  border: none;
+                  border-radius: 10px;
+                  background: #3657CB;
+                }
+              }
+              .socials{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .vk_row{
+                  width: 400px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  .vk_icon{
+                    width: 54px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    background: #4D7198;
+                    img{
+                      width: 25px;
+                      height: 25px;
+                    }
+                  }
+                  .vk_link{
+                    width: 100%;
+                    height: 54px;
+                    border-radius: 10px;
+                    background: #1E2538;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                    }
+                  }
+                }
+                .youtube_row{
+                  width: 400px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  .youtube_icon{
+                    width: 54px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    background: 10px;
+                    background: #F00;;
+                    img{
+                      width: 25px;
+                      height: 25px;
+                    }
+                  }
+                  .youtube_link{
+                    width: 100%;
+                    height: 54px;
+                    border-radius: 10px;
+                    background: #1E2538;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                    }
+                  }
+                }
+                .instagram_row{
+                  width: 400px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  .instagram_icon{
+                    width: 54px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    border-radius: 10px;
+                    background: linear-gradient(218deg, #532CD7 6.15%, #E32A47 58.57%, #EF7230 93.47%);
+                    img{
+                      width: 25px;
+                      height: 25px;
+                    }
+                  }
+                  .instagram_link{
+                    width: 100%;
+                    height: 54px;
+                    border-radius: 10px;
+                    background: #1E2538;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                    }
+                  }
+                }
+                .twitter_row{
+                  width: 400px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  .twitter_icon{
+                    width: 54px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    border-radius: 10px;
+                    background: #1DA1F2;
+                    img{
+                      width: 25px;
+                      height: 25px;
+                    }
+                  }
+                  .twitter_link{
+                    width: 100%;
+                    height: 54px;
+                    border-radius: 10px;
+                    background: #1E2538;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                    }
+                  }
+                }
+                .facebook_row{
+                  width: 400px;
+                  height: 50px;
+                  display: flex;
+                  align-items: center;
+                  .facebook_icon{
+                    width: 54px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 10px;
+                    border-radius: 10px;
+                    background: #3B5998;
+                    img{
+                      width: 25px;
+                      height: 25px;
+                    }
+                  }
+                  .facebook_link{
+                    width: 100%;
+                    height: 54px;
+                    border-radius: 10px;
+                    background: #1E2538;
+                    padding: 0 10px;
+                    display: flex;
+                    align-items: center;
+                    p{
+                    }
+                  }
+                }
+              }
+            }
+            .info_settings{
+              form{
+                width: 748px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 50px);
+                gap: 20px;
+                input{
+                  border-radius: 10px;
+                  border: none;
+                  background: #1E2538;
+                  padding: 0 10px;
+                  box-shadow: 0 0 15px 1px #191E2E;
+                }
+                select{
+                  border-radius: 10px;
+                  border: none;
+                  background: #1E2538;
+                  padding: 0 10px;
+                  box-shadow: 0 0 15px 1px #191E2E;
+                }
+                #genre{
+                  grid-column: 1/3;
+                }
+                textarea{
+                  grid-column: 1/3;
+                  border-radius: 10px;
+                  border: none;
+                  background: #1E2538;
+                  padding: 10px;
+                  box-shadow: 0 0 15px 1px #191E2E;
+                }
+              }
+            }
+
+          }
+        }
+        .friend_section{
+          .title_friend{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            h4{
+              font-size: 30px;
+            }
+            .count_box{
+              ul{
+                width: 100%;
+                display: flex;
+                gap: 20px;
+                padding-top: 10px;
+                li{
+                  list-style-type: none;
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+          .application{
+            width: 100%;
+            border-radius: 10px;
+            background: rgba(54, 87, 203, 0.30);
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .left_side{
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              img{
+                cursor: pointer;
+              }
+              p{
+              }
+            }
+            .right_side{
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              ul{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                li{
+                  list-style: none;
+                  cursor: pointer;
+                }
+              }
+              button{
+                background: none;
+                border: none;
+                margin-right: 10px;
+                cursor: pointer;
+              }
             }
           }
         }
@@ -347,7 +633,7 @@ section{
 }
 
 footer {
-  padding-top: 100vh;
+  padding-top: 200vh;
   .container {
   max-width: 1920px;
   width: 100%;

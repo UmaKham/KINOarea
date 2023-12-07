@@ -75,7 +75,9 @@
                 </div>
                 
                 <div class="box">
+
                     <div class="background"></div>
+
                     <div class="user_section">
                         <div class="info_box">
                             <div class="title_settings">
@@ -129,15 +131,112 @@
                             <div class="expected"><span>16</span><p>Ожидаемые фильмы</p></div>
                         </div>
                     </div>
-                    <div class="user_settings_box">
+
+                    <div class="user_settings_box hide">
                         
                         <div class="title_settings">
                             <h4>Настройки профиля</h4>
                             <button class="settings"><img src="/public/user/save.svg" alt="">Сохранить</button>
                         </div>
 
-                        <div class="img_social">
-                            <div class="img" src="/public/user/deadpool.jpeg" alt=""></div>
+                        <div class="img_social_info">
+                            <div class="img_social">
+                                <div class="img"></div>
+    
+                                <div class="img_text_btn">
+                                    <div class="img_text"><p>Выберите фото профиля</p></div>
+                                    <button>Загрузить</button>
+                                </div>
+    
+                                <div class="socials">
+                                    <div class="vk_row">
+                                        <div class="vk_icon"><img src="/public/vk_icon.png" alt=""></div>
+                                        <div class="vk_link"><p>https://vk.com/evgencomedian</p></div>
+                                    </div>
+                                    <div class="youtube_row">
+                                        <div class="youtube_icon"><img src="/public/youtube_logo.svg" alt=""></div>
+                                        <div class="youtube_link"><p>https://www.youtube.com/channel/UC6cqazS...</p></div>
+                                    </div>
+                                    <div class="instagram_row">
+                                        <div class="instagram_icon"><img src="/public/instagram_icon.png" alt=""></div>
+                                        <div class="instagram_link"><p>https://www.instagram.com/evgenbad/</p></div>
+                                    </div>
+                                    <div class="twitter_row">
+                                        <div class="twitter_icon"><img src="/public/twitter_icon.svg" alt=""></div>
+                                        <div class="twitter_link"><p>https://twitter.com/EvgenComedian</p></div>
+                                    </div>
+                                    <div class="facebook_row">
+                                        <div class="facebook_icon"><img src="/public/fb_icon.svg" alt=""></div>
+                                        <div class="facebook_link"><p>https://www.facebook.com/thebadcomedian</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="info_settings">
+                                <form name="info_settings">
+
+                                    <input type="text" placeholder="Имя">
+
+                                    <input type="text" placeholder="Фамилия">
+
+                                    <select name="gender" id="gender">
+                                        <option value="Пол" selected>Пол</option>
+                                        <option value="Мужской">Мужской</option>
+                                        <option value="Женский">Женский</option>
+                                    </select>
+
+                                    <input type="date">
+
+                                    <select name="country" id="country">
+                                        <option value="Россия" selected>Россия</option>
+                                        <option value="Узбекистан">Узбекистан</option>
+                                        <option value="Америка">Америка</option>
+                                    </select>
+
+                                    <select name="city" id="city">
+                                        <option value="Москва" selected>Москва</option>
+                                        <option value="Самарканд">Самарканд</option>
+                                        <option value="Нью-Йорк">Нью-Йорк</option>
+                                    </select>
+
+                                    <select name="genre" id="genre">
+                                        <option value="Драма" selected>Драма</option>
+                                        <option value="Триллер">Триллер</option>
+                                        <option value="Криминал">Криминал</option>
+                                    </select>
+
+                                    <textarea name="text" id="text" cols="30" rows="10"></textarea>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="friend_section">
+                        <div class="title_friend">
+                            <h4>Ваши друзья</h4>
+                            <div class="count_box">
+                                <ul>
+                                    <li>Всего: 15</li>
+                                    <li>Входящие заявки: 1</li>
+                                    <li>Исходящие заявки: 0</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="application">
+                            <div class="left_side">
+                                <img src="/public/user/application_img.png" alt="">
+                                <p>Виктор Village хочет добавить вас в друзья  (2 общих друга)</p>
+                            </div>
+
+                            <div class="right_side">
+                                <ul>
+                                    <li>Принять</li>
+                                    <li>Отклонить</li>
+                                    <li>Заблокировать</li>
+                                </ul>
+                                <button><img src="/public/user/close.svg" alt=""></button>
+                            </div>
                         </div>
                     </div>
                 </div>
