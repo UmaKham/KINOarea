@@ -1,0 +1,624 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Architects Daughter', cursive;
+  font-family: 'Ysabeau Infant', sans-serif;
+  color: white;
+}
+
+body {
+  background: #1E2538;
+}
+
+main {
+  .container {
+      max-width: 1920px;
+      width: 100%;
+      padding: 30px 40px;
+      margin: 0 auto;
+      header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 0;
+
+          .logo {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              cursor: pointer;
+
+              .logotype {
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+              }
+
+              .social {
+                  width: 126px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+
+                  img {
+                      width: 15px;
+                      opacity: 40%;
+                      cursor: pointer;
+                  }
+
+                  img:hover {
+                      opacity: 100%;
+                  }
+              }
+          }
+
+          nav {
+              ul {
+                  min-width: 760px;
+                  display: flex;
+                  justify-content: space-between;
+                  flex-direction: row;
+
+                  li {
+                      font-size: 17px;
+                      list-style: none;
+                      text-decoration: none;
+                      color: white;
+                      font-weight: bold;
+                      cursor: pointer;
+                      opacity: 70%;
+                  }
+
+                  li:hover {
+                      opacity: 100%;
+                  }
+              }
+          }
+
+          .header_btns {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: 12px;
+
+              .search {
+                  background-image: url('/public/search_btn.svg');
+                  background-position: center;
+                  border-radius: 15px;
+                  cursor: pointer;
+                  width: 40px;
+                  height: 40px;
+                  opacity: 80%;
+                  box-shadow: 0 0 15px #192a67;
+              }
+
+              .search:hover {
+                  opacity: 100%;
+              }
+
+              .user{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 14px;
+                  button{
+                    background: none;
+                    border: none;
+                    img{
+                      box-shadow: none;
+                      cursor: pointer;
+                    }
+                  }
+                  .user_name{
+                    padding-bottom: 10px;
+                    font-size: 20px;
+                  }
+                  img{
+                    border-radius: 17px;
+                    box-shadow: 0 0 10px grey;
+                    margin-bottom: 7px;
+                  }
+              }
+          } 
+      } 
+  } 
+}
+
+section{
+  .container{
+    max-width: 1920px;
+    width: 100%;
+    height: 700px;
+    padding: 0 40px;
+    margin: 0 auto;
+    .user_info{
+      display: flex;
+      gap: 1%;
+      .sidebar{
+        ul{
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: column;
+          gap: 7px;
+          li{
+            padding: 20px;
+            border-radius: 10px;
+            background: #191E2E;
+            list-style: none;
+            opacity: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 15px #08090e;
+            img{
+              width: 30px;
+              height: 30px;
+            }
+          }
+          li:hover{
+            opacity: 100%;
+          }
+          .active{
+            background: #3657CB;
+            box-shadow: 0 0 15px #3657CB;
+            opacity: 100%;
+          }
+        }
+      }
+      .box{
+        width: 100%;
+        padding: 40px 80px;
+        border-radius: 10px;
+        background: linear-gradient(45deg, #191E2E 25%, rgba(255, 255, 255, 0), #191E2E 90%);
+        box-shadow: inset 0 0 150px rgba(8, 9, 14, 0.5);
+        position: relative;
+        .background{
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          background: url('/public/user/06f4bc150603429.62fd18fa8cde0.jpg');
+          opacity: 20%;
+          border-radius: 10px;        
+          box-shadow: 0 0 30px 10px black;
+        }
+        .user_section{
+          .info_box{
+            .title_settings{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+              h4{
+                font-size: 30px;
+              }
+              button{
+                border: none;
+                background: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                font-size: 18px;
+                opacity: 50%;
+                img{
+                  padding-top: 3px;
+                }
+              }
+              button:hover{
+                cursor: pointer;
+                opacity: 100%;
+              }
+            }
+            .info{
+              display: flex;
+              gap: 50px;
+              .img{
+                min-width: 400px;
+                min-height: 400px;
+                background: url('/public/user/deadpool.jpeg') no-repeat center / cover;
+                background-position: -180px 0;
+                border-radius: 15px;
+              }
+              .information{
+                display: flex;
+                flex-direction: column;
+                .user_name{
+                  font-size: 50px;
+                }
+                .social{
+                  display: flex;
+                  justify-content: start;
+                  align-items: center;
+                  gap: 10px;
+                  margin: 9px 0 17px 0;
+                  div{
+                    border: 2px solid white;
+                    padding: 5px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    opacity: 50%;
+                    img{
+                      width: 15px;
+                    }
+                  }
+                  div:hover{
+                    opacity: 100%;
+                    cursor: pointer;
+                  }
+                }
+                .text{
+                  width: 100%;
+                  margin-bottom: 20px;
+                }
+                .info_{
+                  display: flex;
+                  gap: 10px;
+                  ul{
+                    list-style-type: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                  }
+                  .key{
+                    li{
+                      color: gold;
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .user_page_list{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            div{
+              margin: 20px 0 5px;
+              text-align: center;
+              opacity: 50%;
+              font-weight: bold;
+              span{
+                cursor: pointer;
+                font-size: 35px;
+              }
+              p{
+                cursor: pointer;
+                font-size: 20px;
+              }
+            }
+            .active{
+              opacity: 100%;
+            }
+          }
+        }
+        .user_settings_box{
+          .title_settings{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            h4{
+              font-size: 30px;
+            }
+            button{
+              border-radius: 10px;
+              border: none;
+              background: none;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              font-size: 18px;
+              opacity: 50%;
+              img{
+                padding-top: 3px;
+              }
+            }
+            button:hover{
+              cursor: pointer;
+              opacity: 100%;
+            }
+          }
+          .img_social{
+            .img{
+              width: 400px;
+              height: 400px;
+              background: url('/public/user/deadpool.jpeg') no-repeat center / cover;
+              background-position: -180px 0;
+              border-radius: 15px;
+            }
+          }
+        }
+        .hide{
+          display: none;
+        }
+      }
+      .hide{
+        display: none;
+      }
+    }
+  }
+}
+
+footer {
+  padding-top: 100vh;
+  .container {
+  max-width: 1920px;
+  width: 100%;
+  padding: 40px;
+  margin: 0 auto;
+      .box_office{
+          .blue_background {
+          width: 100%;
+          height: 548px;
+          background: url('/public/footer_bg.png');
+          margin-top: 40px;
+          position: relative;
+          border-radius: 10px;
+              .subscription {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+                  .logo {
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  }
+                  .sub_title {
+                  display: flex;
+                  flex-direction: column;
+                  color: white;
+                      span {
+                      margin-top: 53px;
+                      font-size: 50px;
+                      font-weight: bold;
+                      text-align: center;
+                      }
+                      p {
+                      margin-top: 26px;
+                      text-align: center;
+                      width: 680px;
+                      font-size: 22px;
+                      }
+                      form {
+                      margin-top: 34px;
+                      display: flex;
+                      justify-content: center;
+                      gap: 8px;
+                          input {
+                          width: 425px;
+                          height: 71px;
+                          border-radius: 10px;
+                          outline: none;
+                          padding: 20px;
+                          font-size: 17px;
+                          border: none;
+                          }
+                          button {
+                          width: 182px;
+                          height: 71px;
+                          background-color: gold;
+                          color: black;
+                          font-weight: bold;
+                          font-size: 23px;
+                          border: none;
+                          border-radius: 10px;
+                          cursor: pointer;
+                          opacity: 80%;
+                          }
+                          button:hover {
+                          opacity: 100%;
+                          }
+                      }
+                      .checkbox {
+                      margin-top: 22px;
+                      text-align: center;
+                      font-size: 17px;
+                          label {
+                              a {
+                              color: gold;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          .blue_background::before {
+          content: '';
+          background: rgba(29, 58, 160, 0.90);
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 0;
+          border-radius: 10px;
+          box-shadow: 0 0 15px rgba(0, 0, 68, 0.7);
+          }
+          .socials {
+          margin-top: 61px;
+          width: 100%;
+          display: flex;
+          gap: 40px;
+          justify-content: center;
+              img {
+              opacity: 50%;
+              }
+              img:hover {
+              opacity: 100%;
+              cursor: pointer;
+              }
+          }
+          nav {
+          width: 100%;
+          margin-top: 34px;
+              ul {
+              display: flex;
+              justify-content: center;
+              gap: 40px;
+              color: white;
+              font-weight: bold;
+                  li {
+                  list-style: none;
+                  opacity: 80%;
+                  }
+                  li:hover {
+                  opacity: 100%;
+                  cursor: pointer;
+                  }
+              }
+          }
+          .footer {
+          color: rgba(227, 230, 240, 0.72);
+          text-align: center;
+          font-size: 15px;
+              p {
+              margin: 41px 0 26px 0;
+              }
+              a {
+              color: rgba(227, 230, 240, 0.72);
+              }
+          }
+      }
+  }
+}
+
+.search_box{
+  display: none;
+  .modal_bg{
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: black;
+      opacity: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .search_movie{
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      translate: -50% 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      color: white;
+      font-weight: bold;
+      .search_input{
+          width: 100%;
+          height: 71px;
+          border: none;
+          border-radius: 10px;
+          position: relative;
+          outline: none;
+          font-size: 20px;
+          padding: 0 20px;
+      }
+      button{
+          background: url('./public/search_icon.svg');
+          background-size: 35px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: #3657CB;
+          width: 51px;
+          height: 51px;
+          position: fixed;
+          right: 10px;
+          top: 10px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+      }
+      .search_boxs{
+          display: flex;
+          .movie_box{
+              width: 700px;
+              display: flex;
+              flex-direction: column;
+              min-height: fit-content;
+              max-height: fit-content;
+              overflow-y: scroll;
+              .result_item_movie{
+                  background-color: rgb(30, 37, 56);
+                  width: 100%;
+                  height: 137px;
+                  border-radius: 15px;
+                  box-shadow: 0 0 15px black;
+                  display: flex;
+                  justify-content: start;
+                  align-items: center;
+                  img{
+                      padding: 0 1%;
+                      height: 90%;
+                      border-radius: 10px;
+                  }
+                  .movie_info{
+                      width: 100%;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      padding: 0 20px;
+                      .movie_info_left{
+                          .movie_name{
+                              font-size: 20px;
+                              font-weight: bold;
+                              color: white;
+                              padding-bottom: 5px;
+                          }
+                          .movie_original_name{
+                              color: grey;
+                          }
+                          .movie_genre{
+                              color: rgb(242, 246, 15);
+                          }
+                      }
+                      .movie_info_right{
+                          width: 50px;
+                          height: 30px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                          background-color: rgb(75, 203, 54);
+                          border-radius: 8px;
+                          p{
+                              font-size: 20px;
+                              color: white;
+                              font-weight: 30px;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+      
+      ::-webkit-scrollbar{
+          width: 5px;
+      }
+  }
+
+  ::-webkit-scrollbar{
+      width: 5px;
+  }
+}
+
+.visible{
+  display: block;
+}
